@@ -31,9 +31,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
           // Replace with static PDF links
           const pdfLinks = [
-            { name: "PDF 1", url: "./assets/pdf1.pdf" },
-            { name: "PDF 2", url: "./assets/pdf2.pdf" },
-            { name: "PDF 3", url: "./assets/pdf1.pdf" },
+            { name: "DSA", url: "./assets/dsa.pdf" },
+            { name: "CPP-OOPS", url: "./assets/ooos-cpp.pdf" },
+            { name: "SQL", url: "./assets/sql.pdf" },
+            { name: "PYTHON", url: "./assets/mernstack.pdf" },
+            { name: "DBMS", url: "./assets/dbms.pdf" },
+            { name: "OPERATING SYSTEM", url: "./assets/os.pdf" },
+            { name: "COMPUTER NETWORK", url: "./assets/cn.pdf" },
+            { name: "REACT 1", url: "./assets/React_merged.pdf" },
+            { name: "REACT 2", url: "./assets/reactjs.pdf" },
+            { name: "MERN STACK", url: "./assets/mernstack.pdf" },
+            {
+              name: "FLUTTER CLEAN ARCHITECTURE",
+              url: "./assets/flutter-clean.pdf",
+            },
+            { name: "WEB", url: "./assets/web.pdf" },
+            { name: "MYSQL-REACT", url: "./assets/mysql-react.pdf" },
+
             // Add more as needed
           ];
 
