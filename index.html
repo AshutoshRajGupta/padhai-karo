@@ -4,256 +4,163 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>STUDY</title>
-    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Simple layout with two columns */
+      body {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      /* Styling for the iframe */
+      iframe {
+        width: 75%;
+        height: 90vh;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin-top: 20px;
+        background-color: #fff;
+      }
+
+      /* Sidebar for links */
+      #links {
+        width: 20%;
+        margin-right: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Links section styling */
+      h2 {
+        color: #333;
+      }
+
+      h3 {
+        color: #444;
+        margin-top: 20px;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+        display: block;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="logo">
-        <span class="logo-text">A</span>
-      </div>
-      <div class="search-bar" id="search-bar">
-        <input type="text" id="search-input" placeholder="Search..." />
-        <button id="search-button">Search</button>
-      </div>
-      <div class="nav-links" id="nav-links">
-        <a
-          href="https://ashutoshrajgupta.github.io/Me/"
-          target="_blank"
-          class="icon-link"
-        >
-          <img src="./assets/portfolio.png" alt="Portfolio" class="icon" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/ashutosh-raj-gupta-18230820b/"
-          target="_blank"
-          class="icon-link"
-        >
-          <img src="./assets/linkeldn.png" alt="LinkedIn" class="icon" />
-        </a>
-        <a
-          href="https://github.com/AshutoshRajGupta"
-          target="_blank"
-          class="icon-link"
-        >
-          <img src="./assets/github.jpeg" alt="GitHub" class="icon" />
-        </a>
-      </div>
-    </nav>
+    <div id="links">
+      <h2>STUDY RESOURCES</h2>
 
-    <section class="content">
-      <div class="content-container">
-        <div class="text-content">
-          <h2>Study Resources</h2>
-          <p>MERN STACK RESOURCES</p>
-          <p>REACT RESOURCES</p>
-          <p>PYTHON RESOURCES</p>
-          <p>DSA RESOURCES</p>
-          <p>FLUTTER RESOURCES</p>
-        </div>
-        <pre class="code-block">
-<code>
-  const summonDragon = () => 
-  console.log("🔥 Summoning Dragon
-  : 🐉 ROAR! 🔥");
-
-  const quantumLeap = () => 
-  console.log("🚀 Initiating Quantum Leap
-  : 🌌 *zap* 🌟");
-
-
-</code>
-            </pre>
-      </div>
-    </section>
-
-    <section id="pdf-section" class="pdf-container">
-      <h2>NOTES SECTION || STUDY RESOURCES</h2>
-      <div class="pdf-list" id="pdf-list">
-        <div class="pdf-item">
-          <a href="./assets//dsa.pdf" target="_blank">DSA</a>
-        </div>
-        <div class="pdf-item">
-          <a href="./assets//ooos-cpp.pdf" target="_blank">CPP-OOPS</a>
-        </div>
-        <div class="pdf-item">
-          <a href="./assets/sql.pdf" target="_blank">SQL</a>
-        </div>
-        <div class="pdf-item">
-          <a href="./assets//pdf1.pdf" target="_blank">PYTHON</a>
-        </div>
-        <div class="pdf-item">
-          <a href="./assets//dbms.pdf" target="_blank">DBMS</a>
-        </div>
-        <div class="pdf-item">
-          <a href="./assets//os.pdf" target="_blank">OPERATING SYSTEM</a>
-        </div>
-        <div class="pdf-item">
-          <a href="./assets//cn.pdf" target="_blank">COMPUTER NETWORk</a>
-        </div>
-        <div class="pdf-item">
-          <a href="./assets//React_merged.pdf" target="_blank">REACT 1</a>
-        </div>
-        <div class="pdf-item">
-          <a href="./assets//reactjs.pdf" target="_blank">REACT 2</a>
-        </div>
-        <div class="pdf-item">
-          <a href="./assets//mernstack.pdf" target="_blank">MERN STACK</a>
-        </div>
-        <div class="pdf-item">
-          <a href="./assets//flutter-clean.pdf" target="_blank"
+      <h3>Notes Section</h3>
+      <ul>
+        <li><a href="./assets/dsa.pdf" target="content-frame">DSA</a></li>
+        <li>
+          <a href="./assets/ooos-cpp.pdf" target="content-frame">CPP-OOPS</a>
+        </li>
+        <li><a href="./assets/sql.pdf" target="content-frame">SQL</a></li>
+        <li><a href="./assets/pdf1.pdf" target="content-frame">PYTHON</a></li>
+        <li><a href="./assets/dbms.pdf" target="content-frame">DBMS</a></li>
+        <li>
+          <a href="./assets/os.pdf" target="content-frame">OPERATING SYSTEM</a>
+        </li>
+        <li>
+          <a href="./assets/cn.pdf" target="content-frame">COMPUTER NETWORK</a>
+        </li>
+        <li>
+          <a href="./assets/React_merged.pdf" target="content-frame">REACT 1</a>
+        </li>
+        <li>
+          <a href="./assets/reactjs.pdf" target="content-frame">REACT 2</a>
+        </li>
+        <li>
+          <a href="./assets/mernstack.pdf" target="content-frame">MERN STACK</a>
+        </li>
+        <li>
+          <a href="./assets/flutter-clean.pdf" target="content-frame"
             >FLUTTER CLEAN ARCHITECTURE</a
           >
-        </div>
-        <div class="pdf-item">
-          <a href="./assets//web.pdf" target="_blank">WEB</a>
-        </div>
-        <div class="pdf-item">
-          <a href="./assets//mysql-react.pdf" target="_blank">MYSQL-REACT</a>
-        </div>
-      </div>
-    </section>
+        </li>
+        <li><a href="./assets/web.pdf" target="content-frame">WEB</a></li>
+        <li>
+          <a href="./assets/mysql-react.pdf" target="content-frame"
+            >MYSQL-REACT</a
+          >
+        </li>
+      </ul>
 
-    <section id="youtube-section" class="youtube-container">
-      <h2>YOUTUBE SECTION || VIDEO RESOURCES</h2>
-      <div class="youtube-list" id="youtube-list">
-        <div class="youtube-item">
-          <p>MERN Stack Tutorial</p>
-          <button
-            onclick="window.open('https://www.youtube.com/watch?v=A_-fn_ij59c&list=PLuHGmgpyHfRyM2UjMpOhwys4GFURK5Tz2&index=1', '_blank')"
-          >
-            Watch
-          </button>
-        </div>
-        <div class="youtube-item">
-          <p>React Tutorial</p>
-          <button
-            onclick="window.open('https://www.youtube.com/watch?v=RVFAyFWO4go', '_blank')"
-          >
-            Watch
-          </button>
-        </div>
-        <div class="youtube-item">
-          <p>JavaScript Crash Course</p>
-          <button
-            onclick="window.open('https://www.youtube.com/playlist?list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP', '_blank')"
-          >
-            Watch
-          </button>
-        </div>
-        <div class="youtube-item">
-          <p>Python for Beginners</p>
-          <button
-            onclick="window.open('https://www.youtube.com/playlist?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0', '_blank')"
-          >
-            Watch
-          </button>
-        </div>
-        <div class="youtube-item">
-          <p>SQL crash Course</p>
-          <button
-            onclick="window.open('https://www.youtube.com/watch?v=RQPpP2ywA9k&list=PLrL_PSQ6q062H5CetdplYW7xQKeq8XaR0&index=41&t=1s', '_blank')"
-          >
-            Watch
-          </button>
-        </div>
-        <div class="youtube-item">
-          <p>DSA Course - Codehelp</p>
-          <button
-            onclick="window.open('https://www.youtube.com/playlist?list=PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA', '_blank')"
-          >
-            Watch
-          </button>
-        </div>
-        <div class="youtube-item">
-          <p>DSA Course - Apna College</p>
-          <button
-            onclick="window.open('https://www.youtube.com/playlist?list=PLfqMhTWNBTe0b2nM6JHVCnAkhQRGiZMSJ', '_blank')"
-          >
-            Watch
-          </button>
-        </div>
-        <div class="youtube-item">
-          <p>Flutter clean Architecture</p>
-          <button
-            onclick="window.open('https://www.youtube.com/watch?v=ELFORM9fmss', '_blank')"
-          >
-            Watch
-          </button>
-        </div>
-        <!-- Add more YouTube items as needed -->
-      </div>
-    </section>
-
-    <section id="projects-section" class="projects-container">
-      <h2>Projects</h2>
-      <div class="projects-list">
-        <div class="project-card">
-          <h3>CLEAN ARCHITECTURE BLOG APP FLUTTER</h3>
-          <a
-            href="https://github.com/AshutoshRajGupta/flutter-clean-architecture-blogApp"
-            target="_blank"
-            >GitHub</a
-          >
-          <a href="https://www.youtube.com/watch?v=ELFORM9fmss" target="_blank"
-            >YouTube</a
-          >
-        </div>
-        <div class="project-card">
-          <h3>FLUTTER TODO APP</h3>
-          <a
-            href="https://github.com/AshutoshRajGupta/ToDo_UI_FLutter"
-            target="_blank"
-            >GitHub</a
-          >
-          <a href="#" target="_blank">YouTube</a>
-        </div>
-        <div class="project-card">
-          <h3>ECOMMERCE MERN PROJECT</h3>
-          <a
-            href="https://github.com/AshutoshRajGupta/Ecommerce-Shopping"
-            target="_blank"
-            >GitHub</a
-          >
+      <h3>YouTube Resources</h3>
+      <ul>
+        <li>
           <a
             href="https://www.youtube.com/watch?v=A_-fn_ij59c&list=PLuHGmgpyHfRyM2UjMpOhwys4GFURK5Tz2&index=1"
             target="_blank"
-            >YouTube</a
+            >MERN Stack Tutorial</a
           >
-        </div>
-        <div class="project-card">
-          <h3>CRYPTDRIVE</h3>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=RVFAyFWO4go" target="_blank"
+            >React Tutorial</a
+          >
+        </li>
+        <li>
           <a
-            href="https://github.com/AshutoshRajGupta/cryptdrive_version_2"
+            href="https://www.youtube.com/playlist?list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP"
             target="_blank"
-            >GitHub</a
+            >JavaScript Crash Course</a
           >
-        </div>
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/playlist?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0"
+            target="_blank"
+            >Python for Beginners</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/watch?v=RQPpP2ywA9k&list=PLrL_PSQ6q062H5CetdplYW7xQKeq8XaR0&index=41&t=1s"
+            target="_blank"
+            >SQL Crash Course</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/playlist?list=PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA"
+            target="_blank"
+            >DSA Course - Codehelp</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/playlist?list=PLfqMhTWNBTe0b2nM6JHVCnAkhQRGiZMSJ"
+            target="_blank"
+            >DSA Course - Apna College</a
+          >
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=ELFORM9fmss" target="_blank"
+            >Flutter Clean Architecture</a
+          >
+        </li>
+      </ul>
+    </div>
 
-        <div class="project-card">
-          <h3>POS APPLICATION</h3>
-          <a
-            href="https://github.com/AshutoshRajGupta/pos_application"
-            target="_blank"
-            >GitHub</a
-          >
-          <a href="https://www.youtube.com/watch?v=wdeedpLh_5k" target="_blank"
-            >YouTube</a
-          >
-        </div>
-        <div class="project-card">
-          <h3>BLOG APP</h3>
-          <a
-            href="https://github.com/AshutoshRajGupta/mern_blog"
-            target="_blank"
-            >GitHub</a
-          >
-          <a href="https://www.youtube.com/watch?v=EY5Kbt0sx5g" target="_blank"
-            >YouTube</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <script src="scripts.js"></script>
+    <!-- Iframe for PDF and YouTube video content -->
+    <iframe name="content-frame" id="iframe" src="about:blank"></iframe>
   </body>
 </html>
