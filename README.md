@@ -1,1 +1,3 @@
-# My-Study-website
+# My-Study-resources
+
+#### https://my-study-website.vercel.app
