@@ -1,0 +1,31 @@
+//Function to push an element into stack using two queues.
+void QueueStack :: push(int x)
+{
+        // Your Code
+        //push into q2
+        q2.push(x);
+        //then put al elements in q2 from q1 to get the top element at front
+        while(!q1.empty()){
+            q2.push(q1.front());
+            q1.pop();
+        }
+        
+        // putting back into q1
+        while(!q2.empty()){
+            q1.push(q2.front());
+            q2.pop();
+        }
+}
+
+//Function to pop an element from stack using two queues. 
+int QueueStack :: pop()
+{
+        // Your Code 
+        if(q1.empty()){
+            return -1;
+        }
+        
+        int val=q1.front();
+        q1.pop();
+        return val;
+}

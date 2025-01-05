@@ -1,0 +1,65 @@
+// optimized solution
+
+class Solution {
+public:
+    bool isSafe(int row, int col, vector<string>& board, int n)
+{
+    // Check for same row
+    for (int y = 0; y < col; y++)
+    {
+        if (board[row][y] == 'Q')
+        {
+            return false;
+        }
+    }
+
+    // Check for upper left diagonal
+    for (int x = row, y = col; x >= 0 && y >= 0; x--, y--)
+    {
+        if (board[x][y] == 'Q')
+        {
+            return false;
+        }
+    }
+
+    // Check for lower left diagonal
+    for (int x = row, y = col; x < n && y >= 0; x++, y--)
+    {
+        if (board[x][y] == 'Q')
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+    void solve(int col, vector<vector<string>>& ans, vector<string>& board, int n)
+    {
+        if(col == n)
+        {
+            ans.push_back(board);
+            return;
+        }
+
+        //solve 1 case and rest Recursion will take care
+        for(int row = 0; row < n; row++)
+        {
+            if(isSafe(row, col, board, n))
+            {
+                board[row][col] = 'Q';
+                solve(col + 1, ans, board, n);
+                //backtrack
+                board[row][col] = '.';
+            }
+        }
+    }
+    vector<vector<string>> solveNQueens(int n) {
+          vector<string> board(n, string(n, '.'));
+          vector<vector<string>> ans;
+
+          solve(0, ans, board, n);
+
+          return ans;
+    }
+};

@@ -1,0 +1,20 @@
+// for a number 412   output should be in letter 
+// 412===> four one two
+
+void sayDigit(int n, String arr[]){
+    //base case
+    if (n == 0) return;
+    int digit = n % 10;
+    n = n / 10;
+
+    //recursive call
+    sayDigit(n, arr);
+    cout << arr[digit] << " ";
+}
+int main(){
+    String arr[10] = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    int n;
+    cin >> n;
+    sayDigit(n, arr);
+    return 0;
+}
