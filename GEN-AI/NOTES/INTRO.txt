@@ -1,0 +1,114 @@
+Artificial Intelligence (AI): Think of AI as a computer or machine that can do tasks
+ that usually require human intelligence.
+ This includes things like understanding speech, recognizing pictures, 
+ making decisions, or solving problems. 
+ AI can range from simple tasks (like a calculator) to more complex ones 
+ (like self-driving cars). 
+or 
+simply the field of computer science that seeks to create intelligent 
+machines that can replace or exceed human intelligence.
+
+
+
+ AI-1956 
+ML-1997 - subset of AI that enables machines to learn from existing data and 
+improve upon data to make decisions.
+ DL-2012 - ml technique in which layers of neural networks are used to process 
+ data and make decisions. 
+
+
+
+Neural Network Architecture :
+A neural network is a computational model inspired by the way biological neural 
+networks in the human brain process information. It consists of layers of interconnected 
+nodes, or neurons, where each connection has an associated weight. The architecture 
+of a neural network can be broken down into several key components:
+
+Input Layer: This layer receives the input data. Each neuron in this layer represents
+ a feature of the input data.
+
+Hidden Layers: These layers are situated between the input and output layers. 
+They perform transformations on the input data through weighted connections and 
+activation functions. The number of hidden layers and the number of neurons in each 
+layer can vary depending on the specific problem.
+
+Output Layer: This layer produces the final output of the network. The number of 
+neurons in this layer depends on the nature of the task (e.g., for binary classification, 
+there might be one neuron; for multi-class classification, there might be one neuron per class).
+
+Weights and Biases: Each connection between neurons has a weight that is adjusted 
+during training to minimize the error of the network. Biases are additional parameters 
+that help the network make more accurate predictions.
+
+Activation Functions: These functions introduce non-linearity into the network, 
+enabling it to learn complex patterns. Common activation functions include Sigmoid, 
+Tanh, ReLU (Rectified Linear Unit), and its variants.
+
+Loss Function: This function measures the difference between the network's predictions 
+and the actual target values. Common loss functions include Mean Squared Error (MSE) 
+for regression tasks and Cross-Entropy Loss for classification tasks.
+
+Optimizer: This algorithm adjusts the weights and biases to minimize the loss function. 
+Popular optimizers include Stochastic Gradient Descent (SGD), Adam, and RMSprop.
+
+
+
+
+Use of Neural Networks in Deep Neural Networks
+Deep Neural Networks (DNNs) are simply neural networks with many hidden layers. They are particularly effective
+ at capturing complex patterns and relationships in data due to their depth. Here are some key aspects of how 
+ neural networks are utilized in deep learning:
+
+Feature Extraction: In traditional machine learning, features often need to be manually engineered. DNNs 
+can automatically learn and extract features from raw data, which is particularly useful in tasks like image 
+and speech recognition.
+
+End-to-End Learning: DNNs allow for end-to-end learning, where the model learns to map input data directly to 
+the output without the need for intermediary steps. This simplifies the pipeline and often leads to better 
+performance.
+
+Hierarchical Representation: The multiple layers in DNNs allow for hierarchical representation of data. Lower 
+layers might capture simple patterns (e.g., edges in an image), while higher layers capture more complex patterns 
+(e.g., shapes, objects).
+
+Transfer Learning: Pre-trained DNNs can be fine-tuned on new tasks with limited data. This is particularly useful 
+in applications where data is scarce but a pre-trained model on a similar task is available.
+
+Regularization Techniques: Techniques like Dropout, Batch Normalization, and L2 Regularization are often used 
+in DNNs to prevent overfitting and improve generalization.
+
+Scalability: DNNs can scale to very large datasets and complex models, making them suitable for big data 
+applications.
+
+Applications of Deep Neural Networks
+Computer Vision: Image classification, object detection, and image segmentation.
+Natural Language Processing (NLP): Text classification, language translation, and sentiment analysis.
+Speech Recognition: Transcribing spoken words into text.
+Recommender Systems: Personalized recommendations for products, movies, etc.
+Healthcare: Disease diagnosis, medical image analysis, and drug discovery.
+Autonomous Vehicles: Perception and decision-making for self-driving cars.
+In summary, the architecture of a neural network is fundamental to its ability to learn and make predictions. Deep neural networks, with their multiple layers, are particularly powerful for complex tasks due to their ability to automatically extract hierarchical features and learn end-to-end mappings. Their applications span a wide range of fields, from computer vision and NLP to healthcare and beyond.
+
+
+
+
+
+Generative AI is one of the most exciting and innovative fields in artificial 
+ intelligence, enabling machines to create new content by learning from existing data. 
+AI is about machines doing smart things. 
+Generative AI is about machines creating new things/customized.
+Generative AI- 2021 - create new written, visual, and auditory content given prompts. 
+
+
+
+GPT stands for *Generative Pre-trained Transformer. 
+
+Here's a quick breakdown: - **Generative: It can create or generate content. - 
+**Pre-trained: It has been trained on a large amount of text data before being used for specific tasks.
+ - **Transformer: This refers to the type of model architecture it uses, which is designed to handle and process text data effectively. 
+
+
+
+ 
+
+

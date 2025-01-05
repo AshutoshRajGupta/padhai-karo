@@ -1,0 +1,116 @@
+A transformer is type of a neural network model designed for processing sequences of data. it uses self mechanisms
+called attention to focus on different part of the input data, link sentence or paragraphs.
+
+RNN - handle used for sequenctial input data.(hidden state or memory)
+problem - struggle with long range dependencies
+
+Transformer understand relationships between all the wordz in a sentence. it can look at the word 
+in senetnce at same time and understand how they are relate to each other.
+
+A Transformer is a type of AI model used mainly for understanding and generating text. 
+Transformer models are trained with large volumes of text, enabling them to represent the semantic relationships 
+between words and use those relationships to determine probable sequences of text that make sense. 
+
+Transformer model architecture consists of two components, or blocks: 
+An encoder block that creates semantic representations of the training vocabulary. 
+A decoder block that generates new language sequences. 
+
+Transformer Architecture:-
+
+1. Input Embedding: converting words into numerical vectors that model can understand.
+
+2. Positional encoding: adds information about position of each word in sentence. since transformer 
+dont process sequences in order.
+
+3. self attention mechanism : it is a process that allows model to weight the importance of each word 
+in relation to other words in the sentence.
+
+4. Feed forward network: it is a fully connected neural network that takes the output of self attention
+and applies a non-linear transformation to it.
+
+5. Layer Normalization: it is a process that normalizes the output of feed forward network to
+have zero mean and unit variance.
+
+6. Residual Connection: it is a process that adds the input of the layer to the output
+of the layer. it helps in training the model.
+
+7. Decoder: it is a block that generates output sequence. it consists of self attention, feed
+forward network, layer normalization and residual connection.
+
+
+In the Transformer architecture, **Encoder** and **Decoder** are two key components that work together 
+to process input data and generate output. Here's a simple explanation with an example:
+
+### **Encoder** (Understanding the Input):
+- The **encoder** is responsible for **reading and understanding** the input data. 
+It takes a sequence (like a sentence or a set of data) and converts it into a meaningful representation, 
+which the decoder will use.
+  
+- **How it works:**
+  1. Each word (or element) in the input is first **embedded** (turned into a numerical representation).
+  2. Then, **positional encoding** is added to give information about the order of the words.
+  3. The **self-attention** mechanism in the encoder allows it to focus on important words in the input sequence. 
+  For example, when processing the word "eats" in the sentence "The cat eats food," 
+  it might pay more attention to "cat" and "food" to understand the context better.
+  4. This process is repeated through multiple layers (each layer refining the understanding) 
+  to create a final representation of the entire input sequence.
+
+### **Decoder** (Generating the Output):
+- The **decoder** uses the information provided by the encoder to **generate the output** 
+step by step. In tasks like translation, the decoder will create the translated sentence one word at a time.
+
+- **How it works:**
+  1. The decoder starts with an initial token (often a start-of-sequence symbol like `<SOS>`).
+  2. It generates the next word based on the input from the encoder and the words it has already generated.
+  3. The **cross-attention** mechanism allows the decoder to focus on specific parts of the e
+  ncoder’s output when generating each word. For example, while translating "The cat eats food" 
+  into French, the decoder will focus on "cat" when generating "chat" and "eats" when generating "mange."
+  4. This process continues until the decoder produces the entire output sequence
+   (e.g., the full translated sentence).
+
+### **Example (English-to-French Translation)**
+
+Let’s take a simple translation task: translating the English sentence "The cat eats food" into French.
+
+1. **Encoder:**
+   - Input: "The cat eats food"
+   - The encoder reads this sentence, paying attention to how the words relate to each other
+    (e.g., "eats" relates to both "cat" and "food"). It processes the sentence and generates 
+    a **hidden representation** that captures the meaning of the whole sentence.
+
+2. **Decoder:**
+   - Output: "Le chat mange de la nourriture"
+   - The decoder generates the French translation one word at a time. It starts with an initial
+    token and produces "Le" (based on the encoder's information about "The"). Then, using what
+     it knows about the next word ("cat"), it generates "chat," and so on, until the full 
+     French sentence is generated.
+
+### Key Points:
+
+- The **encoder** reads and understands the input sentence as a whole.
+- The **decoder** generates the output sentence one word at a time, using the encoder's 
+understanding of the input to make sure the translation or output is accurate and context-aware.
+
+In simple terms: 
+- The **encoder** is like someone carefully reading a sentence.
+- The **decoder** is like someone speaking out the translation one word at a time, based 
+on what they understood from the reader (encoder).
+
+
+
+WORKING:-
+
+1. The model is trained with a large volume of natural language text, often sourced from the internet or other 
+public sources of text.
+2. The sequences of text are broken down into tokens (for example, individual words) 
+and the encoder block processes these token sequences using a technique called attention to determine 
+relationships between tokens (for example, which tokens influence the presence of other tokens in a sequence, 
+different tokens that are commonly used in the same context, and so on.) 
+3. The output from the encoder is a collection of vectors (multi-valued numeric arrays) in which each element of 
+the vector represents a semantic attribute of the tokens. 
+4. These vectors are referred to as embeddings. The decoder block works on a new sequence of text tokens and uses 
+the embeddings generated by the encoder to generate an appropriate natural language output. 
+
+For example, given an input sequence like "When my dog was", the model can use the attention technique to 
+analyze the input tokens and the semantic attributes encoded in the embeddings to predict an appropriate 
+completion of the sentence, such as "a puppy."

@@ -1,0 +1,4 @@
+
+3. ai agents and their role in gen ai
+4. promptengineering
+5. gpt and lamma model
