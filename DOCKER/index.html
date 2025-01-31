@@ -1,0 +1,184 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        flex: 1;
+        display: flex;
+      }
+
+      header {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      nav a {
+        margin-left: 2rem;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: opacity 0.3s ease;
+      }
+
+      nav a:hover {
+        opacity: 0.7;
+      }
+
+      .hero {
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .hero-content h1 {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        color: #333;
+      }
+
+      .hero-content p {
+        line-height: 1.5;
+        color: #666;
+        margin-bottom: 2rem;
+      }
+
+      .feature-section h2 {
+        text-align: center;
+        margin-bottom: 4rem;
+        color: #333;
+      }
+
+      .feature-section p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <a href="#" onclick="scrollIntoView(-1, false)">Home</a>
+          <a href="#" onclick="scrollIntoView(-1, true)">About</a>
+          <a href="#" onclick="scrollIntoView(-1, false)">Services</a>
+          <a href="#" onclick="scrollIntoView(-1, true)">Contact</a>
+        </nav>
+      </header>
+
+      <section class="hero" id="home">
+        <div class="row">
+          <div class="col-md-6">
+            <h1>Welcome to Our Landing Page!</h1>
+            <p>
+              Create something amazing with our innovative solutions and
+              cutting-edge technology.
+            </p>
+          </div>
+          <div class="col-md-6 text-center">
+            <a href="#" onclick="scrollIntoView(-1, true)"
+              >Explore Our Services</a
+            >
+            <a href="#" onclick="scrollIntoView(-1, false)">Request a Call</a>
+            <a href="#" onclick="scrollIntoView(-1, true)"
+              >Schedule a Consultation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section" id="services">
+        <h2>Our Services</h2>
+        <p>
+          Create unique experiences that stand out in the competitive digital
+          landscape.
+        </p>
+      </section>
+
+      <footer>
+        <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+          anchor.textContent = "Back to main content";
+        });
+      });
+
+      // Scroll to page start when nav links are clicked
+      window.addEventListener("scrollIntoView", function (e) {
+        if (e.target(ID) === "#") {
+          e.preventDefault();
+          document
+            .querySelector("#")
+            .scrollIntoView({ behavior: "start" }, { bounce: 0.5 });
+        } else {
+          this.execute;
+        }
+      });
+
+      // Scroll out of nav links when scrolled to bottom
+      window.addEventListener("scrollEnd", function (e) {
+        if (e.targetId !== "#") {
+          e.preventDefault();
+          document.querySelector("#").scrollIntoView({
+            behavior: "finish",
+          });
+        } else {
+          this.execute;
+        }
+      });
+
+      // Add some animation on scroll
+      const lastScroll = Date.now();
+      window.addEventListener("scroll", function () {
+        const speed = 0.25;
+        if (Date.now() - lastScroll > 300) {
+          speed = 1;
+        } else {
+          speed = 0.2;
+        }
+
+        document.querySelectorAll(".scroll").forEach((element, index) => {
+          element.style.opacity = `(${speed}/4) * (Date.now() - ${lastScroll})`;
+        });
+      });
+
+      // Scroll to top when page loads
+      window.addEventListener("load", function () {
+        document.querySelector(".scroll").style.opacity = "0";
+      });
+    </script>
+  </body>
+</html>
