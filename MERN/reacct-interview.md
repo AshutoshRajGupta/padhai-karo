@@ -30,7 +30,7 @@ Let's create a simple e-commerce website with the following components:
 
 ```jsx
 // Header.js
-import React from 'react';
+import React from "react";
 
 function Header() {
   return (
@@ -38,8 +38,12 @@ function Header() {
       <h1>My E-commerce Store</h1>
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/cart">Cart</a></li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/cart">Cart</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -53,13 +57,13 @@ export default Header;
 
 ```jsx
 // ProductList.js
-import React from 'react';
-import ProductItem from './ProductItem';
+import React from "react";
+import ProductItem from "./ProductItem";
 
 function ProductList({ products }) {
   return (
     <div className="product-list">
-      {products.map(product => (
+      {products.map((product) => (
         <ProductItem key={product.id} product={product} />
       ))}
     </div>
@@ -73,7 +77,7 @@ export default ProductList;
 
 ```jsx
 // ProductItem.js
-import React from 'react';
+import React from "react";
 
 function ProductItem({ product }) {
   return (
@@ -93,13 +97,13 @@ export default ProductItem;
 
 ```jsx
 // Cart.js
-import React from 'react';
+import React from "react";
 
 function Cart({ cartItems }) {
   return (
     <div className="cart">
       <h2>Shopping Cart</h2>
-      {cartItems.map(item => (
+      {cartItems.map((item) => (
         <div key={item.id} className="cart-item">
           <h3>{item.name}</h3>
           <p>${item.price}</p>
@@ -116,7 +120,7 @@ export default Cart;
 
 ```jsx
 // Footer.js
-import React from 'react';
+import React from "react";
 
 function Footer() {
   return (
@@ -135,21 +139,36 @@ Now, let's put all these components together in the main `App` component.
 
 ```jsx
 // App.js
-import React from 'react';
-import Header from './Header';
-import ProductList from './ProductList';
-import Cart from './Cart';
-import Footer from './Footer';
+import React from "react";
+import Header from "./Header";
+import ProductList from "./ProductList";
+import Cart from "./Cart";
+import Footer from "./Footer";
 
 const products = [
-  { id: 1, name: 'Product 1', description: 'Description of Product 1', price: 10 },
-  { id: 2, name: 'Product 2', description: 'Description of Product 2', price: 20 },
-  { id: 3, name: 'Product 3', description: 'Description of Product 3', price: 30 },
+  {
+    id: 1,
+    name: "Product 1",
+    description: "Description of Product 1",
+    price: 10,
+  },
+  {
+    id: 2,
+    name: "Product 2",
+    description: "Description of Product 2",
+    price: 20,
+  },
+  {
+    id: 3,
+    name: "Product 3",
+    description: "Description of Product 3",
+    price: 30,
+  },
 ];
 
 const cartItems = [
-  { id: 1, name: 'Product 1', price: 10 },
-  { id: 2, name: 'Product 2', price: 20 },
+  { id: 1, name: "Product 1", price: 10 },
+  { id: 2, name: "Product 2", price: 20 },
 ];
 
 function App() {
@@ -223,19 +242,29 @@ The `ProductList` component will pass product data as props to the `ProductItem`
 
 ```jsx
 // ProductList.js
-import React from 'react';
-import ProductItem from './ProductItem';
+import React from "react";
+import ProductItem from "./ProductItem";
 
 function ProductList() {
   const products = [
-    { id: 1, name: 'Laptop', description: 'High-performance laptop', price: 999 },
-    { id: 2, name: 'Smartphone', description: 'Latest smartphone', price: 699 },
-    { id: 3, name: 'Headphones', description: 'Noise-cancelling headphones', price: 199 },
+    {
+      id: 1,
+      name: "Laptop",
+      description: "High-performance laptop",
+      price: 999,
+    },
+    { id: 2, name: "Smartphone", description: "Latest smartphone", price: 699 },
+    {
+      id: 3,
+      name: "Headphones",
+      description: "Noise-cancelling headphones",
+      price: 199,
+    },
   ];
 
   return (
     <div className="product-list">
-      {products.map(product => (
+      {products.map((product) => (
         <ProductItem
           key={product.id}
           name={product.name}
@@ -256,7 +285,7 @@ The `ProductItem` component receives the product details as props and uses them 
 
 ```jsx
 // ProductItem.js
-import React from 'react';
+import React from "react";
 
 function ProductItem(props) {
   return (
@@ -278,7 +307,7 @@ Instead of accessing props using `props.name`, `props.description`, etc., you ca
 
 ```jsx
 // ProductItem.js (with destructuring)
-import React from 'react';
+import React from "react";
 
 function ProductItem({ name, description, price }) {
   return (
@@ -300,8 +329,8 @@ Finally, render the `ProductList` component in the `App` component:
 
 ```jsx
 // App.js
-import React from 'react';
-import ProductList from './ProductList';
+import React from "react";
+import ProductList from "./ProductList";
 
 function App() {
   return (
@@ -396,7 +425,7 @@ Let's use a simple example to demonstrate how state works. We'll create a counte
 In modern React, functional components use the `useState` hook to manage state.
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Counter() {
   // Declare a state variable called "count" with an initial value of 0
@@ -423,7 +452,7 @@ export default Counter;
 In class components, state is managed using the `setState` method.
 
 ```jsx
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Counter extends Component {
   // Initialize state in the constructor
@@ -460,13 +489,16 @@ export default Counter;
 
    - In the functional component, `useState(0)` initializes the `count` state variable with a value of `0`.
    - In the class component, the state is initialized in the constructor with `this.state = { count: 0 }`.
+
 2. **Updating State**:
 
    - In the functional component, the `setCount` function is used to update the `count` state.
    - In the class component, `this.setState` is used to update the `count` state.
+
 3. **Re-rendering**:
 
    - When the state changes (e.g., `count` is incremented), React automatically re-renders the component to display the updated value.
+
 4. **Event Handling**:
 
    - The `onClick` event on the button triggers the `increment` function, which updates the state.
@@ -534,10 +566,12 @@ The `useState` hook is a built-in React function that allows functional componen
 
    - You call `useState(initialValue)` to create a state variable.
    - It returns an array with two elements: the current state value and a function to update the state.
+
 2. **Updating State**:
 
    - You call the update function (e.g., `setState(newValue)`) to change the state.
    - React re-renders the component with the new state value.
+
 3. **Re-rendering**:
 
    - Whenever the state changes, React automatically re-renders the component to reflect the updated state.
@@ -551,7 +585,7 @@ Let's create a simple example where a component tracks the number of times a but
 #### Code Example
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function ClickCounter() {
   // Step 1: Declare a state variable "count" with an initial value of 0
@@ -583,10 +617,12 @@ export default ClickCounter;
    - `const [count, setCount] = useState(0);` initializes a state variable `count` with an initial value of `0`.
    - `count` is the current state value.
    - `setCount` is the function used to update the state.
+
 2. **Step 2: Update State**:
 
    - When the button is clicked, the `handleClick` function is called.
    - Inside `handleClick`, `setCount(count + 1)` updates the `count` state by incrementing it by 1.
+
 3. **Step 3: Re-render**:
 
    - When `setCount` is called, React re-renders the component with the new value of `count`.
@@ -625,12 +661,15 @@ Button Clicked: 2 times
 
    - `useState` is straightforward and requires minimal setup.
    - It replaces the need for class components and `this.setState`.
+
 2. **State is Local**:
 
    - The state created with `useState` is local to the component where it is declared.
+
 3. **Re-renders on Update**:
 
    - Whenever the state is updated, React re-renders the component to reflect the new state.
+
 4. **Multiple State Variables**:
 
    - You can use `useState` multiple times in a single component to manage different pieces of state.
@@ -638,7 +677,7 @@ Button Clicked: 2 times
    Example:
 
    ```jsx
-   const [name, setName] = useState('John');
+   const [name, setName] = useState("John");
    const [age, setAge] = useState(25);
    ```
 
@@ -649,11 +688,11 @@ Button Clicked: 2 times
 Let's extend the example to include a text input that updates a name.
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function UserInfo() {
   // State for name
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
 
   // State for age
   const [age, setAge] = useState(0);
@@ -677,7 +716,9 @@ function UserInfo() {
           onChange={(e) => setAge(Number(e.target.value))} // Update age state
         />
       </div>
-      <h2>Hello, {name}! You are {age} years old.</h2>
+      <h2>
+        Hello, {name}! You are {age} years old.
+      </h2>
     </div>
   );
 }
@@ -748,10 +789,10 @@ JSX is a way to write HTML inside JavaScript. It looks like HTML but is actually
 Here’s a simple example of JSX in a React component:
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 function Greeting() {
-  const name = 'Alice';
+  const name = "Alice";
 
   return (
     <div>
@@ -786,12 +827,14 @@ Example:
 
 ```jsx
 function App() {
-  const user = { firstName: 'John', lastName: 'Doe' };
+  const user = { firstName: "John", lastName: "Doe" };
   const isLoggedIn = true;
 
   return (
     <div>
-      <h1>Hello, {user.firstName} {user.lastName}!</h1>
+      <h1>
+        Hello, {user.firstName} {user.lastName}!
+      </h1>
       {isLoggedIn ? <p>Welcome back!</p> : <p>Please log in.</p>}
     </div>
   );
@@ -834,9 +877,9 @@ Example:
 ```jsx
 function App() {
   const style = {
-    color: 'blue',
-    fontSize: '24px',
-    textAlign: 'center',
+    color: "blue",
+    fontSize: "24px",
+    textAlign: "center",
   };
 
   return (
@@ -880,9 +923,7 @@ function App() {
   const isLoggedIn = false;
 
   return (
-    <div>
-      {isLoggedIn ? <h1>Welcome back!</h1> : <h1>Please log in.</h1>}
-    </div>
+    <div>{isLoggedIn ? <h1>Welcome back!</h1> : <h1>Please log in.</h1>}</div>
   );
 }
 ```
@@ -891,11 +932,11 @@ function App() {
 
 ### JSX vs HTML
 
-| Feature                     | JSX                                      | HTML                                  |
-| --------------------------- | ---------------------------------------- | ------------------------------------- |
+| Feature               | JSX                                    | HTML                                |
+| --------------------- | -------------------------------------- | ----------------------------------- |
 | **Class Attribute**   | `className`                            | `class`                             |
 | **Inline Styles**     | Object (e.g.,`style={{color: 'red'}}`) | String (e.g.,`style="color: red;"`) |
-| **JavaScript**        | Embed with `{}`                        | Not possible                          |
+| **JavaScript**        | Embed with `{}`                        | Not possible                        |
 | **Self-Closing Tags** | Mandatory (e.g.,`<img />`)             | Optional (e.g.,`<img>`)             |
 
 ---
@@ -905,10 +946,10 @@ function App() {
 Let’s create a simple React component that displays a list of items using JSX and JavaScript.
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 function ShoppingList() {
-  const items = ['Apples', 'Bananas', 'Milk', 'Bread'];
+  const items = ["Apples", "Bananas", "Milk", "Bread"];
 
   return (
     <div>
@@ -948,7 +989,7 @@ const element = <h1>Hello, world!</h1>;
 is compiled into:
 
 ```javascript
-const element = React.createElement('h1', null, 'Hello, world!');
+const element = React.createElement("h1", null, "Hello, world!");
 ```
 
 ---
@@ -980,14 +1021,13 @@ JSX is a powerful and intuitive way to write UI components in React. It combines
   - State is managed within a component (like a variable declared inside a function).
   - It is mutable and can be updated using `setState` in class components or the `useState` hook in functional components.
   - State is local to the component and cannot be accessed by child components unless passed as props.
+
 - **Props:**
 
   - Props (short for properties) are used to pass data from a parent component to a child component.
   - Props are immutable and cannot be modified by the child component.
 
 ---
-
-
 
 ### 8. Definition of Keys in React
 
@@ -1006,9 +1046,11 @@ Keys are like IDs for list items in React. They help React keep track of each it
 1. **Efficient Updates**:
 
    - Keys help React identify which items have changed, been added, or been removed, so it only updates the necessary parts of the UI.
+
 2. **Stable Identity**:
 
    - Keys provide a stable identity for list items, even if their order or position changes.
+
 3. **Avoiding Bugs**:
 
    - Without keys, React might incorrectly re-render or reuse elements, leading to bugs like incorrect input values or focus states.
@@ -1028,13 +1070,13 @@ Let’s create a simple example where we render a list of items using the `map` 
 #### Code Example
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 function TodoList() {
   const todos = [
-    { id: 1, text: 'Buy groceries' },
-    { id: 2, text: 'Walk the dog' },
-    { id: 3, text: 'Do laundry' },
+    { id: 1, text: "Buy groceries" },
+    { id: 2, text: "Walk the dog" },
+    { id: 3, text: "Do laundry" },
   ];
 
   return (
@@ -1059,12 +1101,15 @@ export default TodoList;
 1. **List of Todos**:
 
    - We have an array of `todos`, where each todo is an object with an `id` and `text`.
+
 2. **Rendering with `map`**:
 
    - The `map` function is used to iterate over the `todos` array and create a list item (`<li>`) for each todo.
+
 3. **Using Keys**:
 
    - Each `<li>` element is assigned a `key` prop with the value of `todo.id`. This ensures that each item has a unique identifier.
+
 4. **Output**:
 
    - The rendered list will look like this:
@@ -1084,9 +1129,9 @@ export default TodoList;
 If you don't use keys, React might have trouble identifying which items have changed. For example:
 
 ```jsx
-{todos.map((todo) => (
-  <li>{todo.text}</li>
-))}
+{
+  todos.map((todo) => <li>{todo.text}</li>);
+}
 ```
 
 React will warn you:
@@ -1114,17 +1159,17 @@ Using keys ensures that React can efficiently update the list:
 Let’s create a more dynamic example where the list can be updated.
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function DynamicTodoList() {
   const [todos, setTodos] = useState([
-    { id: 1, text: 'Buy groceries' },
-    { id: 2, text: 'Walk the dog' },
-    { id: 3, text: 'Do laundry' },
+    { id: 1, text: "Buy groceries" },
+    { id: 2, text: "Walk the dog" },
+    { id: 3, text: "Do laundry" },
   ]);
 
   const addTodo = () => {
-    const newTodo = { id: todos.length + 1, text: 'New Task' };
+    const newTodo = { id: todos.length + 1, text: "New Task" };
     setTodos([...todos, newTodo]);
   };
 
@@ -1152,9 +1197,11 @@ export default DynamicTodoList;
 
    - The `todos` array is stored in state using the `useState` hook.
    - The `addTodo` function adds a new todo to the list.
+
 2. **Rendering with Keys**:
 
    - Each `<li>` element is assigned a unique `key` using `todo.id`.
+
 3. **Dynamic Updates**:
 
    - When the "Add Todo" button is clicked, a new todo is added to the list, and React efficiently updates the UI.
@@ -1191,6 +1238,7 @@ Dynamic Todo List
 1. **Unique Identifier**:
 
    - Keys should be unique among siblings (e.g., `todo.id`).
+
 2. **Avoid Using Index as Key**:
 
    - Using the array index as a key can cause issues if the list order changes. Always use a stable, unique identifier if possible.
@@ -1198,10 +1246,11 @@ Dynamic Todo List
    Example of what **not** to do:
 
    ```jsx
-   {todos.map((todo, index) => (
-     <li key={index}>{todo.text}</li>
-   ))}
+   {
+     todos.map((todo, index) => <li key={index}>{todo.text}</li>);
+   }
    ```
+
 3. **Keys and Performance**:
 
    - Keys help React optimize rendering, improving performance for large lists.
@@ -1213,8 +1262,6 @@ Dynamic Todo List
 Keys are an essential part of rendering lists in React. They help React efficiently update and re-render lists by providing a unique identifier for each item. By using keys with the `map` function, you can ensure that your lists are dynamic, performant, and bug-free. Always use a stable and unique identifier for keys to avoid issues and make your React applications more robust.
 
 ---
-
-
 
 ## 9. 📌 **What is the Virtual DOM?**
 
@@ -1231,11 +1278,11 @@ The **Virtual DOM (VDOM)** is a **lightweight copy** of the real **DOM (Document
 ## 🔹 **How Does React Use the Virtual DOM?**
 
 1. **Render Phase (Virtual DOM Update)**
-   * When state or props change, React creates a new Virtual DOM.
+   - When state or props change, React creates a new Virtual DOM.
 2. **Diffing Phase (Compare Old & New Virtual DOM)**
-   * React compares the new Virtual DOM with the previous version using its **Diffing Algorithm** to find changes.
+   - React compares the new Virtual DOM with the previous version using its **Diffing Algorithm** to find changes.
 3. **Reconciliation Phase (Update the Real DOM Efficiently)**
-   * Instead of re-rendering the entire UI, React updates **only the changed elements** in the real DOM.
+   - Instead of re-rendering the entire UI, React updates **only the changed elements** in the real DOM.
 
 ---
 
@@ -1243,16 +1290,16 @@ The **Virtual DOM (VDOM)** is a **lightweight copy** of the real **DOM (Document
 
 ### 🛒 **Scenario: Adding a Product to Cart**
 
-Imagine a product page where a user clicks  **"Add to Cart"** .
+Imagine a product page where a user clicks **"Add to Cart"** .
 
 ### **Without Virtual DOM (Traditional DOM Updates)**
 
-* Every time the cart updates, the browser  **re-renders the entire page** , making it slow.
+- Every time the cart updates, the browser **re-renders the entire page** , making it slow.
 
 ### **With Virtual DOM (React's Approach)**
 
-1. The user clicks  **"Add to Cart"** .
-2. React updates the Virtual DOM  **instead of modifying the real DOM immediately** .
+1. The user clicks **"Add to Cart"** .
+2. React updates the Virtual DOM **instead of modifying the real DOM immediately** .
 3. React **compares the new Virtual DOM** with the previous one.
 4. It finds that only the **cart count** has changed, so it updates **only that part** of the real DOM.
 
@@ -1279,9 +1326,9 @@ function Cart() {
 
 ### **How Virtual DOM Works Here?**
 
-* When `cartCount` updates, React creates a  **new Virtual DOM** .
-* It **compares** the new Virtual DOM with the old one.
-* It finds that  **only `<h2>` has changed** , so it updates **only that part** of the real DOM instead of reloading the whole page.
+- When `cartCount` updates, React creates a **new Virtual DOM** .
+- It **compares** the new Virtual DOM with the old one.
+- It finds that **only `<h2>` has changed** , so it updates **only that part** of the real DOM instead of reloading the whole page.
 
 ---
 
@@ -1298,8 +1345,6 @@ function Cart() {
 💡 **In simple terms, React’s Virtual DOM makes web apps faster and more efficient by minimizing direct changes to the real DOM!** 🚀
 
 ---
-
-
 
 ## 10. 📌 **What are React Hooks?**
 
@@ -1353,8 +1398,8 @@ class Cart extends React.Component {
 }
 ```
 
-* Requires **class components** and `this.state`.
-* Code is longer and harder to maintain.
+- Requires **class components** and `this.state`.
+- Code is longer and harder to maintain.
 
 ### **With Hooks (Functional Component using `useState`)**
 
@@ -1389,13 +1434,13 @@ export default Cart;
 
 ## 🔹 **Common React Hooks**
 
-| Hook           | Purpose                                                  |
-| -------------- | -------------------------------------------------------- |
+| Hook         | Purpose                                                  |
+| ------------ | -------------------------------------------------------- |
 | `useState`   | Manages state in functional components.                  |
 | `useEffect`  | Handles side effects (like API calls, subscriptions).    |
 | `useContext` | Provides global state management.                        |
 | `useRef`     | Creates references to DOM elements without re-rendering. |
-| `useReducer` | Similar to `useState`but for complex state logic.      |
+| `useReducer` | Similar to `useState`but for complex state logic.        |
 
 ---
 
@@ -1405,7 +1450,7 @@ export default Cart;
 
 ✅ **`useState` manages state easily** (like cart items, user login status).
 
-✅  **Hooks improve performance and readability** .
+✅ **Hooks improve performance and readability** .
 
 ---
 
@@ -1413,23 +1458,21 @@ export default Cart;
 
 ---
 
-
-
 ## 11. 📌 **Rules for Using React Hooks**
 
-When using  **React Hooks** , you must follow these rules to ensure your components work correctly.
+When using **React Hooks** , you must follow these rules to ensure your components work correctly.
 
 ---
 
 ### **🔹 1. Only Call Hooks at the Top Level**
 
-* **❌ Wrong:** Don’t call Hooks inside loops, conditions, or nested functions.
-* **✅ Correct:** Always call Hooks at the **top level** of your function component.
+- **❌ Wrong:** Don’t call Hooks inside loops, conditions, or nested functions.
+- **✅ Correct:** Always call Hooks at the **top level** of your function component.
 
 🔹 **Why?**
 
-* React maintains Hook calls in the **same order** every render.
-* Placing them inside loops/conditions can break this order, causing errors.
+- React maintains Hook calls in the **same order** every render.
+- Placing them inside loops/conditions can break this order, causing errors.
 
 **❌ Incorrect Example (Calling inside a condition):**
 
@@ -1455,13 +1498,13 @@ function Cart({ showCart }) {
 
 ### **🔹 2. Only Call Hooks from React Function Components or Custom Hooks**
 
-* **❌ Wrong:** Don’t use Hooks in normal JavaScript functions or class components.
-* **✅ Correct:** Use them inside **functional components** or  **custom hooks** .
+- **❌ Wrong:** Don’t use Hooks in normal JavaScript functions or class components.
+- **✅ Correct:** Use them inside **functional components** or **custom hooks** .
 
 🔹 **Why?**
 
-* Hooks rely on the React rendering lifecycle.
-* Using them outside React components breaks this flow.
+- Hooks rely on the React rendering lifecycle.
+- Using them outside React components breaks this flow.
 
 **❌ Incorrect Example (Calling in a normal JS function):**
 
@@ -1485,11 +1528,11 @@ function Cart() {
 
 ### **🔹 3. Follow the "use" Naming Convention for Custom Hooks**
 
-* **✅ Always start custom hook names with `use`** (e.g., `useCart`, `useFetch`).
+- **✅ Always start custom hook names with `use`** (e.g., `useCart`, `useFetch`).
 
 🔹 **Why?**
 
-* Helps React detect **custom hooks** and apply optimizations.
+- Helps React detect **custom hooks** and apply optimizations.
 
 **✅ Correct Example (Custom Hook):**
 
@@ -1504,12 +1547,12 @@ function useCart() {
 
 ### **🔹 4. Hooks Must Be Called in the Same Order on Every Render**
 
-* **❌ Wrong:** Don’t put Hooks inside conditional statements.
-* **✅ Correct:** Hooks should always be called in the **same order** in every render.
+- **❌ Wrong:** Don’t put Hooks inside conditional statements.
+- **✅ Correct:** Hooks should always be called in the **same order** in every render.
 
 🔹 **Why?**
 
-* React relies on the **order of Hook calls** to track state and effects.
+- React relies on the **order of Hook calls** to track state and effects.
 
 **❌ Incorrect Example (Conditional Hook Call):**
 
@@ -1549,61 +1592,73 @@ Following these rules ensures **React Hooks work correctly** and prevent unexpec
 
 ---
 
+## 12. Definition of `useEffect` Hook
 
+#### **Technical Definition**:
 
-## 12. 📌 **What is `useEffect` in React?**
+The `useEffect` hook in React allows you to perform side effects in functional components. Side effects are actions that interact with the outside world, such as fetching data, updating the DOM, or subscribing to events.
 
-`useEffect` is a **React Hook** that **performs side effects** in functional components, such as:
+#### **Simple Definition**:
 
-✅ Fetching data from an API
-
-✅ Updating the DOM
-
-✅ Subscribing to events (like window resize, scroll)
-
-✅ Cleaning up resources
+`useEffect` is a tool that lets you run code after your component renders or when certain values change. It’s useful for tasks like loading data, setting up timers, or cleaning up resources.
 
 ---
 
-### 🔹 **Simple Definition:**
+### How `useEffect` Works
 
-💡 **`useEffect` runs code after the component renders. It is used for fetching data, updating UI, or handling events.**
+1. **Runs After Render**:
+
+   - The code inside `useEffect` runs after the component renders.
+   - This ensures that the side effect doesn’t block the rendering process.
+
+2. **Dependency Array**:
+
+   - You can control when `useEffect` runs by passing a dependency array.
+   - If the array is empty, `useEffect` runs only once (after the first render).
+   - If the array contains values, `useEffect` runs whenever those values change.
+
+3. **Cleanup**:
+
+   - If your effect sets up something that needs to be cleaned up (e.g., a subscription or timer), you can return a cleanup function from `useEffect`.
 
 ---
 
-## 🔹 **How `useEffect` Works?**
+### Example: `useEffect` in an E-commerce App
 
-1. **Runs after the first render** (like `componentDidMount` in class components).
-2. **Runs again when dependencies change** (like `componentDidUpdate`).
-3. **Can clean up resources** (like `componentWillUnmount`).
+Let’s create a simple e-commerce example where we use `useEffect` to fetch product data from an API and display it.
 
----
+#### Step 1: Fetching Product Data
 
-## 🔹 **Example: E-commerce Website (Fetching Product Data)**
-
-Imagine an e-commerce website where we **fetch products from an API** and display them when the page loads.
-
-### ✅ **React Code Example:**
+We’ll use `useEffect` to fetch a list of products when the component loads.
 
 ```jsx
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 function ProductList() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]); // State to store products
 
-  // Fetch products when the component loads
+  // Step 2: Fetch products using useEffect
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then(response => response.json())
-      .then(data => setProducts(data)); 
-  }, []);  // Empty dependency array means it runs only once when the component mounts
+    // Simulate an API call
+    const fetchProducts = async () => {
+      const response = await fetch("https://fakestoreapi.com/products");
+      const data = await response.json();
+      setProducts(data); // Update state with fetched products
+    };
+
+    fetchProducts();
+  }, []); // Empty dependency array means this runs only once
 
   return (
     <div>
-      <h2>🛍️ Product List</h2>
+      <h1>Products</h1>
       <ul>
-        {products.map(product => (
-          <li key={product.id}>{product.title}</li>
+        {products.map((product) => (
+          <li key={product.id}>
+            <h2>{product.title}</h2>
+            <p>${product.price}</p>
+            <img src={product.image} alt={product.title} width="100" />
+          </li>
         ))}
       </ul>
     </div>
@@ -1615,89 +1670,197 @@ export default ProductList;
 
 ---
 
-## 🔹 **How `useEffect` Works in the Above Code?**
+### Explanation
 
-1️⃣ **Component Renders** → `useEffect` runs after the first render.
+1. **State for Products**:
 
-2️⃣ **Fetch API Data** → `fetch("https://fakestoreapi.com/products")` gets product data.
+   - We use `useState` to create a `products` state variable to store the list of products.
 
-3️⃣ **Update State** → `setProducts(data)` updates the product list.
+2. **Fetching Data**:
 
-4️⃣ **Re-render with New Data** → The product list updates in the UI.
+   - Inside `useEffect`, we define an async function `fetchProducts` to fetch data from an API.
+   - We call `fetchProducts` to load the data when the component mounts.
+
+3. **Dependency Array**:
+
+   - The empty dependency array `[]` means `useEffect` runs only once, after the first render.
+
+4. **Rendering Products**:
+
+   - The fetched products are stored in the `products` state and displayed in a list.
 
 ---
 
-## 🔹 **Understanding `useEffect` Dependency Array**
+### Step 2: Adding a Loading State
 
-### **1️⃣ No Dependency (`useEffect(() => {...}, [])`)**
-
-* Runs **only once** after the first render.
-* ✅ **Best for API calls, setting up event listeners.**
+Let’s improve the example by adding a loading state to show a spinner while the data is being fetched.
 
 ```jsx
-useEffect(() => {
-  console.log("Runs only once on mount");
-}, []);  // Empty array = No re-run
+import React, { useState, useEffect } from "react";
+
+function ProductList() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true); // Step 1: Add loading state
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch("https://fakestoreapi.com/products");
+      const data = await response.json();
+      setProducts(data);
+      setLoading(false); // Step 2: Update loading state
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return <p>Loading products...</p>; // Step 3: Show loading message
+  }
+
+  return (
+    <div>
+      <h1>Products</h1>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            <h2>{product.title}</h2>
+            <p>${product.price}</p>
+            <img src={product.image} alt={product.title} width="100" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default ProductList;
 ```
 
 ---
 
-### **2️⃣ With Dependencies (`useEffect(() => {...}, [count])`)**
+### Explanation
 
-* Runs  **when `count` changes** .
-* ✅ **Best for watching changes in state/props.**
+1. **Loading State**:
+
+   - We add a `loading` state variable to track whether the data is still being fetched.
+
+2. **Update Loading State**:
+
+   - After fetching the data, we set `loading` to `false`.
+
+3. **Conditional Rendering**:
+
+   - If `loading` is `true`, we display a loading message. Otherwise, we render the list of products.
+
+---
+
+### Step 3: Cleanup Example
+
+Let’s add a timer to the example and use `useEffect` to clean it up when the component unmounts.
 
 ```jsx
-const [count, setCount] = useState(0);
+import React, { useState, useEffect } from "react";
 
-useEffect(() => {
-  console.log(`Count changed: ${count}`);
-}, [count]);  // Runs every time `count` updates
+function ProductList() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [time, setTime] = useState(0); // Step 1: Add timer state
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch("https://fakestoreapi.com/products");
+      const data = await response.json();
+      setProducts(data);
+      setLoading(false);
+    };
+
+    fetchProducts();
+
+    // Step 2: Set up a timer
+    const timer = setInterval(() => {
+      setTime((prevTime) => prevTime + 1);
+    }, 1000);
+
+    // Step 3: Cleanup the timer
+    return () => clearInterval(timer);
+  }, []);
+
+  if (loading) {
+    return <p>Loading products...</p>;
+  }
+
+  return (
+    <div>
+      <h1>Products</h1>
+      <p>Time elapsed: {time} seconds</p>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            <h2>{product.title}</h2>
+            <p>${product.price}</p>
+            <img src={product.image} alt={product.title} width="100" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default ProductList;
 ```
 
 ---
 
-### **3️⃣ Cleanup Function (`useEffect(() => {... return () => {...}; }, [])`)**
+### Explanation
 
-* Cleans up resources when the component  **unmounts** .
-* ✅ **Best for removing event listeners or clearing intervals.**
+1. **Timer Setup**:
 
-```jsx
-useEffect(() => {
-  const interval = setInterval(() => {
-    console.log("Timer running...");
-  }, 1000);
+   - We use `setInterval` to create a timer that updates the `time` state every second.
 
-  return () => {
-    clearInterval(interval); // Cleanup on unmount
-    console.log("Timer stopped");
-  };
-}, []);
-```
+2. **Cleanup Function**:
+
+   - The `useEffect` hook returns a cleanup function that clears the timer using `clearInterval`.
+   - This ensures the timer is stopped when the component unmounts.
+
+3. **Time Display**:
+
+   - The elapsed time is displayed alongside the product list.
 
 ---
 
-## 🔥 **Key Takeaways of `useEffect` Hook**
+### Key Points About `useEffect`
 
-✅ Runs  **after the component renders** .
+1. **Runs After Render**:
 
-✅ Used for  **fetching data, updating the DOM, handling subscriptions** .
+   - `useEffect` runs after the component renders, ensuring the UI is updated first.
 
-✅ Can run  **once, on every render, or when dependencies change** .
+2. **Dependency Array**:
 
-✅ Can include **cleanup code** to prevent memory leaks.
+   - Use the dependency array to control when `useEffect` runs.
+   - Empty array `[]`: Runs once after the first render.
+   - Array with values `[value]`: Runs whenever `value` changes.
+
+3. **Cleanup**:
+
+   - Return a cleanup function to clean up resources (e.g., timers, subscriptions) when the component unmounts or before the effect runs again.
 
 ---
 
-💡 **In simple words, `useEffect` helps React components do things like fetching data, setting timers, or handling user events efficiently! 🚀**
+### Conclusion
+
+The `useEffect` hook is a powerful tool for managing side effects in React. In our e-commerce example, we used it to:
+
+- Fetch product data when the component mounts.
+- Show a loading state while the data is being fetched.
+- Set up and clean up a timer.
+
+By understanding `useEffect`, you can handle side effects like data fetching, subscriptions, and timers in a clean and efficient way.
 
 ---
-
-
 
 ## 13. 📌 **Difference Between Controlled and Uncontrolled Components in React**
 
-In React, **form inputs (like text fields, checkboxes, etc.)** can be handled in  **two ways** :
+In React, **form inputs (like text fields, checkboxes, etc.)** can be handled in **two ways** :
 
 1. **Controlled Components** (React manages the state)
 2. **Uncontrolled Components** (DOM manages the state)
@@ -1710,9 +1873,9 @@ In React, **form inputs (like text fields, checkboxes, etc.)** can be handled in
 
 ### ✅ **How It Works?**
 
-* The **state** stores the value of the input.
-* The **`onChange` event handler** updates the state when the user types.
-* The **input value** is always controlled by React state.
+- The **state** stores the value of the input.
+- The **`onChange` event handler** updates the state when the user types.
+- The **input value** is always controlled by React state.
 
 ### **Example: Controlled Input (React Controls the Value)**
 
@@ -1744,9 +1907,9 @@ export default ControlledForm;
 
 ### 🔹 **What Happens Here?**
 
-✅ The input value is  **stored in React state (`name`)** .
+✅ The input value is **stored in React state (`name`)** .
 
-✅ The input is  **updated using `onChange`** .
+✅ The input is **updated using `onChange`** .
 
 ✅ React **fully controls** the input behavior.
 
@@ -1758,9 +1921,9 @@ export default ControlledForm;
 
 ### ✅ **How It Works?**
 
-* React does NOT control the value of the input field.
-* The **`useRef` hook** is used to access the value directly from the DOM.
-* The input's value is handled by the **browser** (not React).
+- React does NOT control the value of the input field.
+- The **`useRef` hook** is used to access the value directly from the DOM.
+- The input's value is handled by the **browser** (not React).
 
 ### **Example: Uncontrolled Input (DOM Controls the Value)**
 
@@ -1788,9 +1951,9 @@ export default UncontrolledForm;
 
 ### 🔹 **What Happens Here?**
 
-✅ The input value is  **NOT stored in state** .
+✅ The input value is **NOT stored in state** .
 
-✅ The input value is accessed  **directly from the DOM using `useRef`** .
+✅ The input value is accessed **directly from the DOM using `useRef`** .
 
 ✅ React does NOT re-render when the value changes.
 
@@ -1798,13 +1961,13 @@ export default UncontrolledForm;
 
 ## 📊 **Key Differences: Controlled vs. Uncontrolled Components**
 
-| Feature                  | Controlled Component                   | Uncontrolled Component                                      |
-| ------------------------ | -------------------------------------- | ----------------------------------------------------------- |
-| **Data Storage**   | Stored in React state (`useState`)   | Stored in the DOM (`useRef`)                              |
-| **Value Handling** | Controlled via `onChange`            | Accessed via `ref`                                        |
+| Feature            | Controlled Component                   | Uncontrolled Component                                      |
+| ------------------ | -------------------------------------- | ----------------------------------------------------------- |
+| **Data Storage**   | Stored in React state (`useState`)     | Stored in the DOM (`useRef`)                                |
+| **Value Handling** | Controlled via `onChange`              | Accessed via `ref`                                          |
 | **Performance**    | More re-renders (on every change)      | Better performance (fewer updates)                          |
 | **Best Use Case**  | When React needs to control UI updates | When working with third-party libraries (like file uploads) |
-| **Example**        | Input field with state management      | File upload input (`<input type="file">`)                 |
+| **Example**        | Input field with state management      | File upload input (`<input type="file">`)                   |
 
 ---
 
@@ -1812,15 +1975,15 @@ export default UncontrolledForm;
 
 ✅ **Use Controlled Components When:**
 
-* You need to **validate input** (e.g., checking email format).
-* You want **real-time updates** (e.g., live search, form validation).
-* The form data is  **part of a React state** .
+- You need to **validate input** (e.g., checking email format).
+- You want **real-time updates** (e.g., live search, form validation).
+- The form data is **part of a React state** .
 
 ✅ **Use Uncontrolled Components When:**
 
-* You need to **integrate third-party libraries** (e.g., file upload, Google reCAPTCHA).
-* You want **better performance** by avoiding unnecessary re-renders.
-* You are dealing with  **simple, non-dynamic form inputs** .
+- You need to **integrate third-party libraries** (e.g., file upload, Google reCAPTCHA).
+- You want **better performance** by avoiding unnecessary re-renders.
+- You are dealing with **simple, non-dynamic form inputs** .
 
 ---
 
@@ -1828,22 +1991,1020 @@ export default UncontrolledForm;
 
 ✅ **Controlled Components** → React **manages input values** via state (`useState`).
 
-✅ **Uncontrolled Components** → The  **DOM handles input values** , accessed via `useRef()`.
+✅ **Uncontrolled Components** → The **DOM handles input values** , accessed via `useRef()`.
 
-✅  **Controlled components are better for React-managed forms** , while  **uncontrolled components are useful for direct DOM interactions** .
+✅ **Controlled components are better for React-managed forms** , while **uncontrolled components are useful for direct DOM interactions** .
 
 **💡 In simple words:**
 
-* **Controlled Components** = React controls the input value.
-* **Uncontrolled Components** = The browser (DOM) controls the input value.
+- **Controlled Components** = React controls the input value.
+- **Uncontrolled Components** = The browser (DOM) controls the input value.
 
 🚀 **For most cases, use controlled components for better control and flexibility!**
 
 ---
 
+### **`15. useMemo` Hook in React: Simple Explanation with Example**
 
+---
 
-### **5. What are React Hooks?**
+#### **What is `useMemo`?**
+
+- **Simple Definition**: `useMemo` is like a "memory" for your component. It remembers the result of a calculation and only recalculates it when specific values change. This helps avoid unnecessary work and makes your app faster.
+
+---
+
+#### **When to Use `useMemo`**:
+
+- For **expensive calculations** (e.g., filtering large lists, complex math).
+- When you want to **prevent re-renders** caused by recalculating the same value.
+
+---
+
+### **Example 1: Shopping Cart Total**
+
+#### **Scenario**:
+
+Imagine a shopping cart component that calculates the total price of items. Even if the cart items don’t change, you don’t want to recalculate the total every time the component re-renders (e.g., when a counter updates).
+
+---
+
+#### **Step 1: Without `useMemo` (Bad Performance)**:
+
+```jsx
+import React, { useState } from "react";
+
+function Cart() {
+  const [cart] = useState([
+    { name: "Shirt", price: 20 },
+    { name: "Shoes", price: 50 },
+  ]);
+  const [counter, setCounter] = useState(0);
+
+  // BAD: Recalculates total on every render (even when counter changes)
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+  return (
+    <div>
+      <h2>Total: ${total}</h2>
+      <button onClick={() => setCounter(counter + 1)}>
+        Counter: {counter} (Click Me)
+      </button>
+    </div>
+  );
+}
+```
+
+- **Problem**: Every time you click the counter button, `total` recalculates even though the cart hasn’t changed.
+
+---
+
+#### **Step 2: With `useMemo` (Optimized)**:
+
+```jsx
+import React, { useState, useMemo } from "react";
+
+function Cart() {
+  const [cart] = useState([
+    { name: "Shirt", price: 20 },
+    { name: "Shoes", price: 50 },
+  ]);
+  const [counter, setCounter] = useState(0);
+
+  // GOOD: Only recalculates when `cart` changes
+  const total = useMemo(() => {
+    console.log("Recalculating total..."); // Only logs when cart changes
+    return cart.reduce((sum, item) => sum + item.price, 0);
+  }, [cart]); // Dependency: Re-run if `cart` changes
+
+  return (
+    <div>
+      <h2>Total: ${total}</h2>
+      <button onClick={() => setCounter(counter + 1)}>
+        Counter: {counter} (Click Me)
+      </button>
+    </div>
+  );
+}
+```
+
+- **Result**: Clicking the counter button **does not** recalculate `total` because `cart` hasn’t changed.
+- The `console.log` only runs when the cart updates.
+
+---
+
+### **Example 2: Filtering a List**
+
+#### **Scenario**:
+
+Filter a list of products based on a search term. Without `useMemo`, the list re-filters on every keystroke, even if the search term hasn’t changed.
+
+```jsx
+import React, { useState, useMemo } from "react";
+
+function ProductList() {
+  const [products] = useState([
+    { id: 1, name: "Laptop" },
+    { id: 2, name: "Phone" },
+    { id: 3, name: "Tablet" },
+  ]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Only re-filter when `searchTerm` or `products` change
+  const filteredProducts = useMemo(() => {
+    console.log("Filtering..."); // Logs only when searchTerm changes
+    return products.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm, products]);
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <ul>
+        {filteredProducts.map((product) => (
+          <li key={product.id}>{product.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+- **Result**: The list only re-filters when you type in the search box, not on unrelated re-renders.
+
+---
+
+### **Key Points**:
+
+1. **Dependency Array**:
+
+   - The second argument to `useMemo` is an array of dependencies.
+   - Example: `[cart]` means “recalculate only if `cart` changes.”
+
+2. **When Not to Use `useMemo`**:
+
+   - For simple calculations (e.g., adding two numbers).
+   - Overusing it can make code harder to read.
+
+3. **Difference from `useCallback`**:
+
+   - `useMemo` memoizes **values**.
+   - `useCallback` memoizes **functions**.
+
+---
+
+### **Summary**:
+
+- **What it does**: `useMemo` remembers a value and recalculates it only when dependencies change.
+- **Why use it**: Optimize performance for heavy calculations.
+- **How to use it**: Wrap your calculation in `useMemo` and specify dependencies.
+
+---
+
+## 16. 📌 **What are Higher-Order Components (HOC) in React?**
+
+💡 **A Higher-Order Component (HOC) is a function that takes a component as an argument and returns a new enhanced component.**
+
+👉 **Think of HOCs as "wrappers" that add extra functionality to existing components without modifying them directly.**
+
+---
+
+## **🔹 Simple Definition:**
+
+A **Higher-Order Component (HOC)** is just a **function** that:
+
+✅ Takes a **component** as input.
+
+✅ Returns a **new component** with additional features.
+
+✅ Helps **reuse logic** across multiple components.
+
+---
+
+## **🔹 How Do Higher-Order Components Work?**
+
+HOCs follow a **functional programming pattern** where a function modifies another function (or component).
+
+### **Basic HOC Structure:**
+
+```jsx
+const withExtraFunctionality = (WrappedComponent) => {
+  return function EnhancedComponent(props) {
+    return <WrappedComponent {...props} extraProp="Added by HOC" />;
+  };
+};
+```
+
+👆 **Here’s what happens:**
+
+1️⃣ **HOC takes `WrappedComponent`** as an argument.
+
+2️⃣ **It returns a new component (`EnhancedComponent`)** that adds extra functionality.
+
+3️⃣ **The new component renders `WrappedComponent` with additional props.**
+
+---
+
+## **🔹 Example: HOC for Logging User Actions in an E-Commerce App**
+
+Imagine an **e-commerce website** where we want to **log whenever a user clicks a button** (e.g., "Add to Cart").
+
+### ✅ **Step 1: Create the HOC (`withLogger`)**
+
+```jsx
+import React from "react";
+
+// Higher-Order Component to log user interactions
+const withLogger = (WrappedComponent) => {
+  return function EnhancedComponent(props) {
+    const handleClick = () => {
+      console.log(`User clicked on: ${props.label}`);
+    };
+
+    return <WrappedComponent {...props} onClick={handleClick} />;
+  };
+};
+
+export default withLogger;
+```
+
+✅ **This HOC adds logging functionality** to any button or UI component.
+
+---
+
+### ✅ **Step 2: Use the HOC in a Button Component**
+
+```jsx
+import React from "react";
+import withLogger from "./withLogger"; // Import HOC
+
+// Normal Button Component
+const Button = ({ label, onClick }) => {
+  return <button onClick={onClick}>{label}</button>;
+};
+
+// Enhance Button using HOC
+const LoggedButton = withLogger(Button);
+
+export default LoggedButton;
+```
+
+✅ **Now, `LoggedButton` automatically logs clicks without modifying the original `Button`.**
+
+---
+
+### ✅ **Step 3: Use `LoggedButton` in an E-Commerce App**
+
+```jsx
+import React from "react";
+import LoggedButton from "./LoggedButton";
+
+function App() {
+  return (
+    <div>
+      <h2>🛒 E-Commerce Store</h2>
+      <LoggedButton label="Add to Cart" />
+      <LoggedButton label="Buy Now" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+📌 **Now, whenever a user clicks "Add to Cart" or "Buy Now", the HOC logs the action to the console.**
+
+---
+
+## **🔹 Key Benefits of HOCs**
+
+✅ **Code Reusability** → Share logic across multiple components.
+
+✅ **Separation of Concerns** → Keeps components clean and modular.
+
+✅ **Extensibility** → Easily add new behaviors (e.g., authentication, logging, API fetching).
+
+---
+
+## **📊 When to Use HOCs?**
+
+| Use Case           | Example                                       |
+| ------------------ | --------------------------------------------- |
+| **Authentication** | Restrict access based on user roles           |
+| **Logging**        | Track user interactions (clicks, views)       |
+| **API Fetching**   | Automatically fetch data and pass it as props |
+| **Permissions**    | Show/hide UI based on user access level       |
+
+---
+
+## **🔥 Key Takeaways**
+
+✅ **HOCs are functions that enhance components by adding extra functionality.**
+
+✅ **They follow the "wrapper" pattern, returning a new component.**
+
+✅ **Common use cases include authentication, logging, and API handling.**
+
+✅ **They help reuse logic without modifying the original components.**
+
+💡 **In simple words:**
+
+A **Higher-Order Component (HOC)** is like a **power-up** in a game 🎮—it takes a normal component and gives it **extra abilities!** 🚀
+
+---
+
+## 17. 📌 **React Component Lifecycle Phases**
+
+In React, every component goes through a **lifecycle** with different phases. This is mainly applicable to **class components** , but functional components can achieve similar behavior using **React Hooks** (like `useEffect`).
+
+### 🔹 **3 Main Phases of the Component Lifecycle:**
+
+1️⃣ **Mounting** → The component is created and added to the DOM.
+
+2️⃣ **Updating** → The component updates when props or state change.
+
+3️⃣ **Unmounting** → The component is removed from the DOM.
+
+---
+
+## **1️⃣ Mounting Phase (Component is Created and Inserted into the DOM)**
+
+👉 **This happens when the component is first rendered.**
+
+### **Key Lifecycle Methods in Mounting Phase:**
+
+| Method                                          | Description                                                                 |
+| ----------------------------------------------- | --------------------------------------------------------------------------- |
+| `constructor()`                                 | Initializes the component (sets initial state & props).                     |
+| `static getDerivedStateFromProps(props, state)` | Updates state based on props before rendering.                              |
+| `render()`                                      | Returns the JSX (UI) for the component.                                     |
+| `componentDidMount()`                           | Executes after the component is inserted into the DOM (used for API calls). |
+
+### ✅ **Example: Mounting Phase**
+
+```jsx
+import React, { Component } from "react";
+
+class Product extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { price: 100 }; // Initial state
+    console.log("Constructor Called");
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log("getDerivedStateFromProps Called");
+    return null; // No state update
+  }
+
+  componentDidMount() {
+    console.log("componentDidMount Called");
+    // API call can be made here
+  }
+
+  render() {
+    console.log("Render Called");
+    return <h2>Product Price: ${this.state.price}</h2>;
+  }
+}
+
+export default Product;
+```
+
+### 🔹 **What Happens Here?**
+
+📌 **`constructor()`** → Initializes state and props.
+
+📌 **`getDerivedStateFromProps()`** → Syncs state with props before rendering.
+
+📌 **`render()`** → Displays the component UI.
+
+📌 **`componentDidMount()`** → Runs after mounting (e.g., API calls).
+
+---
+
+## **2️⃣ Updating Phase (Component Rerenders When State or Props Change)**
+
+👉 **This happens when:**
+
+✔️ The component **receives new props** .
+
+✔️ The **state updates** (via `setState`).
+
+✔️ The **force update (`forceUpdate()`)** method is called.
+
+### **Key Lifecycle Methods in Updating Phase:**
+
+| Method                                          | Description                                                              |
+| ----------------------------------------------- | ------------------------------------------------------------------------ |
+| `static getDerivedStateFromProps(props, state)` | Updates state before rendering (same as in mounting).                    |
+| `shouldComponentUpdate(nextProps, nextState)`   | Decides whether to re-render or not (used for optimization).             |
+| `render()`                                      | Re-renders the component UI.                                             |
+| `getSnapshotBeforeUpdate(prevProps, prevState)` | Captures a snapshot of the previous state before the update.             |
+| `componentDidUpdate(prevProps, prevState)`      | Executes after the component updates (used for API calls, side effects). |
+
+### ✅ **Example: Updating Phase**
+
+```jsx
+import React, { Component } from "react";
+
+class Product extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { price: 100 };
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log("getDerivedStateFromProps Called");
+    return null;
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("shouldComponentUpdate Called");
+    return true; // Allow re-render
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log("getSnapshotBeforeUpdate Called");
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("componentDidUpdate Called");
+  }
+
+  increasePrice = () => {
+    this.setState({ price: this.state.price + 10 });
+  };
+
+  render() {
+    console.log("Render Called");
+    return (
+      <div>
+        <h2>Product Price: ${this.state.price}</h2>
+        <button onClick={this.increasePrice}>Increase Price</button>
+      </div>
+    );
+  }
+}
+
+export default Product;
+```
+
+### 🔹 **What Happens Here?**
+
+📌 **User clicks "Increase Price"** → `setState` updates `price`.
+
+📌 **`shouldComponentUpdate()`** → Determines if the component should re-render (returns `true`).
+
+📌 **`getSnapshotBeforeUpdate()`** → Captures previous state before re-rendering.
+
+📌 **`componentDidUpdate()`** → Runs after re-render, useful for API calls.
+
+---
+
+## **3️⃣ Unmounting Phase (Component is Removed from the DOM)**
+
+👉 **This happens when the component is deleted (e.g., navigating to another page, removing an item from a list, etc.).**
+
+### **Key Lifecycle Method in Unmounting Phase:**
+
+| Method                   | Description                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| `componentWillUnmount()` | Cleans up side effects (removes event listeners, stops timers, cancels API calls, etc.). |
+
+### ✅ **Example: Unmounting Phase**
+
+```jsx
+import React, { Component } from "react";
+
+class Timer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { time: new Date().toLocaleTimeString() };
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      this.setState({ time: new Date().toLocaleTimeString() });
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval); // Cleanup before unmounting
+    console.log("componentWillUnmount Called");
+  }
+
+  render() {
+    return <h2>Current Time: {this.state.time}</h2>;
+  }
+}
+
+export default Timer;
+```
+
+### 🔹 **What Happens Here?**
+
+📌 **`componentDidMount()`** → Starts a timer that updates every second.
+
+📌 **`componentWillUnmount()`** → Clears the timer before the component is removed.
+
+---
+
+## **📊 Summary of Lifecycle Methods**
+
+| Phase          | Method                       | Purpose                                                    |
+| -------------- | ---------------------------- | ---------------------------------------------------------- |
+| **Mounting**   | `constructor()`              | Initialize state & props                                   |
+|                | `getDerivedStateFromProps()` | Sync state with props before rendering                     |
+|                | `render()`                   | Display UI                                                 |
+|                | `componentDidMount()`        | Perform side effects (API calls, event listeners)          |
+| **Updating**   | `getDerivedStateFromProps()` | Sync state with props                                      |
+|                | `shouldComponentUpdate()`    | Decide if re-render is needed                              |
+|                | `render()`                   | Display updated UI                                         |
+|                | `getSnapshotBeforeUpdate()`  | Capture state before update                                |
+|                | `componentDidUpdate()`       | Run side effects after update                              |
+| **Unmounting** | `componentWillUnmount()`     | Cleanup before removal (remove listeners, clear intervals) |
+
+---
+
+## **🔥 Lifecycle in Functional Components (Using Hooks)**
+
+React Hooks like `useEffect` replace lifecycle methods in functional components.
+
+### ✅ **Equivalent of `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`**
+
+```jsx
+import React, { useState, useEffect } from "react";
+
+function Timer() {
+  const [time, setTime] = useState(new Date().toLocaleTimeString());
+
+  useEffect(() => {
+    console.log("Component Mounted or Updated");
+    const interval = setInterval(() => {
+      setTime(new Date().toLocaleTimeString());
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+      console.log("Component Will Unmount");
+    };
+  }, []); // Empty dependency array means it runs only on mount/unmount
+
+  return <h2>Current Time: {time}</h2>;
+}
+
+export default Timer;
+```
+
+✅ **Mounting & Updating** → Runs effect when component mounts.
+
+✅ **Unmounting** → Cleans up timer when the component is removed.
+
+---
+
+## **🔥 Key Takeaways**
+
+✅ **React components have 3 lifecycle phases: Mounting, Updating, and Unmounting.**
+
+✅ **Class components use lifecycle methods (`componentDidMount`, `componentDidUpdate`, etc.).**
+
+✅ **Functional components use `useEffect` to handle lifecycle behavior.**
+
+✅ **Lifecycle methods are useful for handling API calls, logging, timers, and event listeners.**
+
+💡 **In simple words:** React component lifecycle is like a **human life cycle** —it's born (mounting), grows and changes (updating), and finally dies (unmounting). 🚀
+
+---
+
+## **18. 📌 What is React Router?**
+
+**React Router** is a standard **library for routing** in React applications. It enables navigation between different views or components without refreshing the page, creating a **single-page application (SPA)** experience.
+
+---
+
+## **🛠 Key Features of React Router**
+
+✔️ **Dynamic Routing** → Routes are defined using React components.
+
+✔️ **Client-side Navigation** → No full-page reloads; it updates the UI dynamically.
+
+✔️ **Nested Routes** → Supports multiple levels of routing.
+
+✔️ **Route Parameters** → Can pass parameters via URLs (`/product/:id`).
+
+✔️ **Redirection & Protected Routes** → Redirect users based on conditions.
+
+---
+
+## **📌 How Does React Router Work?**
+
+1️⃣ **Define Routes** using `<Route>` inside `<BrowserRouter>`.
+
+2️⃣ **Render Components** based on the URL path.
+
+3️⃣ **Use `Link` or `useNavigate`** for navigation without reloading.
+
+---
+
+## **✅ Example: E-commerce Website using React Router**
+
+Let's create a simple **e-commerce website** with three pages:
+
+- **Home Page (`/`)**
+- **Products Page (`/products`)**
+- **Product Details Page (`/product/:id`)**
+
+### 📌 **1. Install React Router**
+
+Run this command in your React project:
+
+```sh
+npm install react-router-dom
+```
+
+---
+
+### 📌 **2. Set Up Routing in `App.js`**
+
+```jsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import Products from "./Products";
+import ProductDetails from "./ProductDetails";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+```
+
+---
+
+### 📌 **3. Create `Home.js` (Home Page)**
+
+```jsx
+import React from "react";
+import { Link } from "react-router-dom";
+
+function Home() {
+  return (
+    <div>
+      <h1>Welcome to Our Store</h1>
+      <Link to="/products">View Products</Link>
+    </div>
+  );
+}
+
+export default Home;
+```
+
+✔️ **`Link` component** replaces traditional `<a>` tags, preventing page reloads.
+
+---
+
+### 📌 **4. Create `Products.js` (Products Page)**
+
+```jsx
+import React from "react";
+import { Link } from "react-router-dom";
+
+const products = [
+  { id: 1, name: "Laptop" },
+  { id: 2, name: "Smartphone" },
+];
+
+function Products() {
+  return (
+    <div>
+      <h1>Our Products</h1>
+      {products.map((product) => (
+        <div key={product.id}>
+          <Link to={`/product/${product.id}`}>{product.name}</Link>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default Products;
+```
+
+✔️ **Dynamic Links** → Clicking a product name navigates to `/product/:id`.
+
+---
+
+### 📌 **5. Create `ProductDetails.js` (Product Details Page)**
+
+```jsx
+import React from "react";
+import { useParams } from "react-router-dom";
+
+function ProductDetails() {
+  const { id } = useParams(); // Get the product ID from the URL
+
+  return (
+    <div>
+      <h2>Product Details</h2>
+      <p>Showing details for Product ID: {id}</p>
+    </div>
+  );
+}
+
+export default ProductDetails;
+```
+
+✔️ **`useParams()` Hook** → Retrieves the `id` from the URL.
+
+---
+
+## **📌 Summary**
+
+| Feature               | Description                               |
+| --------------------- | ----------------------------------------- |
+| **`<BrowserRouter>`** | Wraps the app to enable routing           |
+| **`<Routes>`**        | Groups all route definitions              |
+| **`<Route>`**         | Defines a path and associated component   |
+| **`<Link>`**          | Navigates between pages without reloading |
+| **`useParams()`**     | Extracts parameters from the URL          |
+
+🚀 **React Router makes navigation seamless, creating a smooth user experience for SPAs!**
+
+---
+
+## **19. 📌 What is Conditional Rendering in React?**
+
+Conditional rendering in React **allows components to render dynamically based on certain conditions** (like user authentication, API response, or feature availability). It works similarly to JavaScript conditions such as `if`, `&&`, `? :`, and `switch`.
+
+---
+
+## **✅ Methods of Conditional Rendering in React**
+
+### 1️⃣ **Using `if-else` Statement**
+
+✔️ Best for **long, complex conditions** .
+
+```jsx
+function UserGreeting({ isLoggedIn }) {
+  if (isLoggedIn) {
+    return <h2>Welcome back!</h2>;
+  } else {
+    return <h2>Please log in.</h2>;
+  }
+}
+```
+
+---
+
+### 2️⃣ **Using Ternary Operator (`? :`)**
+
+✔️ **Shorter** than `if-else`
+
+```jsx
+function UserGreeting({ isLoggedIn }) {
+  return <h2>{isLoggedIn ? "Welcome back!" : "Please log in."}</h2>;
+}
+```
+
+---
+
+### 3️⃣ **Using Logical `&&` Operator**
+
+✔️ When **only one element** should render based on a condition.
+
+```jsx
+function NewMessages({ messages }) {
+  return (
+    <div>
+      <h2>Inbox</h2>
+      {messages.length > 0 && <p>You have {messages.length} new messages!</p>}
+    </div>
+  );
+}
+```
+
+💡 **If `messages.length > 0` is true,** it renders the `<p>` tag. Otherwise, nothing renders.
+
+---
+
+### 4️⃣ **Using `switch-case` (For Multiple Conditions)**
+
+✔️ **Best for handling multiple states** (like order status, user roles).
+
+```jsx
+function OrderStatus({ status }) {
+  switch (status) {
+    case "pending":
+      return <p>Your order is pending.</p>;
+    case "shipped":
+      return <p>Your order has been shipped!</p>;
+    case "delivered":
+      return <p>Your order has been delivered.</p>;
+    default:
+      return <p>Invalid order status.</p>;
+  }
+}
+```
+
+---
+
+## **📌 Example: Conditional Rendering in an E-commerce Website**
+
+Imagine an **e-commerce website** where:
+
+✅ **Logged-in users** see a "Welcome back" message.
+
+✅ **Guests** see a "Please log in" prompt.
+
+✅ **If the cart is empty,** a message appears.
+
+```jsx
+import React from "react";
+
+function EcommerceDashboard({ isLoggedIn, cartItems }) {
+  return (
+    <div>
+      {/* Conditional Greeting */}
+      <h2>{isLoggedIn ? "Welcome back!" : "Please log in to continue."}</h2>
+
+      {/* Conditional Cart Message */}
+      {cartItems.length === 0 ? (
+        <p>Your cart is empty. Start shopping now!</p>
+      ) : (
+        <p>You have {cartItems.length} items in your cart.</p>
+      )}
+    </div>
+  );
+}
+
+// Example Usage
+export default function App() {
+  return <EcommerceDashboard isLoggedIn={true} cartItems={[1, 2]} />;
+}
+```
+
+---
+
+## **📌 Summary**
+
+| **Method**    | **Best For**                    |
+| ------------- | ------------------------------- |
+| `if-else`     | Complex conditions              |
+| Ternary `? :` | Simple inline conditions        |
+| Logical `&&`  | Rendering one element when true |
+| `switch-case` | Handling multiple states        |
+
+🚀 **Conditional rendering makes React apps dynamic, interactive, and user-friendly!**
+
+---
+
+## **20. 📌 What are Pure Components in React?**
+
+A **Pure Component** in React is a component that **only re-renders when its props or state change** . It improves performance by avoiding unnecessary re-renders.
+
+---
+
+## **✅ Key Features of Pure Components**
+
+✔️ **Implements `shouldComponentUpdate()` automatically** → Prevents unnecessary re-renders.
+
+✔️ **Works with class components (`React.PureComponent`)** .
+
+✔️ **Uses shallow comparison** to check if props/state have changed.
+
+---
+
+## **🛠 Example: React Pure Component**
+
+```jsx
+import React, { PureComponent } from "react";
+
+class Message extends PureComponent {
+  render() {
+    console.log("Message component re-rendered!");
+    return <h2>Message: {this.props.text}</h2>;
+  }
+}
+
+export default function App() {
+  const [text, setText] = React.useState("Hello");
+
+  return (
+    <div>
+      <Message text={text} />
+      <button onClick={() => setText("Hello")}>Update</button>
+    </div>
+  );
+}
+```
+
+✔️ **Even if you click the button multiple times,** the `Message` component won’t re-render unless `text` actually changes.
+
+✔️ If we use `Component` instead of `PureComponent`, it **re-renders unnecessarily** .
+
+---
+
+## **📌 Pure Components vs Normal Components**
+
+| Feature                        | Normal Component (`Component`)        | Pure Component (`PureComponent`)      |
+| ------------------------------ | ------------------------------------- | ------------------------------------- |
+| Re-rendering                   | Always re-renders when parent updates | Only re-renders if props/state change |
+| Performance                    | Less efficient (more renders)         | More efficient (fewer renders)        |
+| Uses `shouldComponentUpdate()` | ❌ No                                 | ✅ Yes (automatic)                    |
+| Best for                       | Small components                      | Large components with unchanged data  |
+
+---
+
+## **📌 Example: Pure Component in an E-commerce Website**
+
+### **Scenario:**
+
+- A **Product Card** should only re-render if the product details change.
+- If the parent updates but the product props remain the same, it **should not re-render** .
+
+```jsx
+import React, { PureComponent } from "react";
+
+class ProductCard extends PureComponent {
+  render() {
+    console.log("ProductCard re-rendered!");
+    return (
+      <div>
+        <h3>{this.props.name}</h3>
+        <p>Price: ${this.props.price}</p>
+      </div>
+    );
+  }
+}
+
+export default function App() {
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <div>
+      <ProductCard name="Laptop" price="1000" />
+      <button onClick={() => setCount(count + 1)}>
+        Update Counter {count}
+      </button>
+    </div>
+  );
+}
+```
+
+✔️ Clicking the button updates `count`, but **`ProductCard` does NOT re-render** because its props (`name` and `price`) remain the same.
+
+---
+
+## **📌 Do Functional Components Have PureComponent?**
+
+🔹 **No, but they use `React.memo()` for similar behavior** :
+
+```jsx
+const ProductCard = React.memo(({ name, price }) => {
+  console.log("ProductCard re-rendered!");
+  return (
+    <div>
+      <h3>{name}</h3>
+      <p>Price: ${price}</p>
+    </div>
+  );
+});
+```
+
+---
+
+## **📌 When to Use Pure Components?**
+
+✅ When a component receives the same props frequently.
+
+✅ When performance optimization is needed.
+
+✅ When dealing with large lists or static data.
+
+🚀 **Pure Components make React apps faster by reducing unnecessary renders!**
+
+---
+
+---
+
+### **21. What are React Hooks?**
 
 **Answer:**
 Hooks are functions introduced in React 16.8 that allow you to use state and other React features in functional components. Some commonly used hooks are:
@@ -1861,31 +3022,7 @@ const [count, setCount] = useState(0);
 
 ---
 
-### **6. What is the Virtual DOM?**
-
-**Answer:**
-The Virtual DOM is a lightweight copy of the real DOM. React uses it to improve performance by minimizing direct manipulation of the real DOM. When the state of a component changes, React first updates the Virtual DOM and then compares it with the real DOM using a process called **reconciliation**. Only the differences are updated in the real DOM.
-
----
-
-### **7. What are keys in React?**
-
-**Answer:**
-Keys are special attributes used in React to identify which items in a list have changed, been added, or been removed. They help React optimize rendering by minimizing re-renders.
-
-Example:
-
-```jsx
-<ul>
-  {items.map(item => (
-    <li key={item.id}>{item.name}</li>
-  ))}
-</ul>
-```
-
----
-
-### **8. What is the difference between class components and functional components?**
+### **22. What is the difference between class components and functional components?**
 
 **Answer:**
 
@@ -1894,6 +3031,7 @@ Example:
   - Use ES6 classes and extend `React.Component`.
   - Have lifecycle methods like `componentDidMount`, `componentDidUpdate`, etc.
   - Use `this.state` and `this.setState` to manage state.
+
 - **Functional Components:**
 
   - Plain JavaScript functions.
@@ -1902,20 +3040,7 @@ Example:
 
 ---
 
-### **9. What are React lifecycle methods?**
-
-**Answer:**
-Lifecycle methods are specific methods in class components that are called at different stages of a component's life. The main lifecycle methods are:
-
-- **Mounting:** `componentDidMount`
-- **Updating:** `componentDidUpdate`
-- **Unmounting:** `componentWillUnmount`
-
-In functional components, the `useEffect` hook replaces these lifecycle methods.
-
----
-
-### **10. What is Redux, and how does it work with React?**
+### **23. What is Redux, and how does it work with React?**
 
 **Answer:**
 Redux is a state management library for JavaScript applications. It helps manage the global state of an application in a predictable way. Redux works with React by:
@@ -1928,7 +3053,7 @@ React-Redux provides a `Provider` component to connect the Redux store to the Re
 
 ---
 
-### **11. What is the significance of `useEffect`?**
+### **24. What is the significance of `useEffect`?**
 
 **Answer:**
 The `useEffect` hook is used to perform side effects in functional components. It replaces lifecycle methods like `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`. You can use it for tasks like data fetching, subscriptions, or manually changing the DOM.
@@ -1946,7 +3071,7 @@ useEffect(() => {
 
 ---
 
-### **12. What is React Context?**
+### **25. What is React Context?**
 
 **Answer:**
 React Context is a way to pass data through the component tree without having to pass props down manually at every level. It is useful for sharing global data like themes, user authentication, or language preferences.
@@ -1954,7 +3079,7 @@ React Context is a way to pass data through the component tree without having to
 Example:
 
 ```jsx
-const ThemeContext = React.createContext('light');
+const ThemeContext = React.createContext("light");
 
 function App() {
   return (
@@ -1967,42 +3092,7 @@ function App() {
 
 ---
 
-### **13. What is the difference between controlled and uncontrolled components?**
-
-**Answer:**
-
-- **Controlled Components:**
-
-  - The component's state is managed by React.
-  - The value of the input is controlled by the state.
-  - Example: `<input value={value} onChange={handleChange} />`
-- **Uncontrolled Components:**
-
-  - The component's state is managed by the DOM.
-  - The value of the input is accessed using a `ref`.
-  - Example: `<input ref={inputRef} />`
-
----
-
-### **14. What is React Router?**
-
-**Answer:**
-React Router is a library used for routing in React applications. It allows you to define routes and navigate between different components without reloading the page.
-
-Example:
-
-```jsx
-<BrowserRouter>
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/about" element={<About />} />
-  </Routes>
-</BrowserRouter>
-```
-
----
-
-### **15. What is the purpose of `React.Fragment`?**
+### **26. What is the purpose of `React.Fragment`?**
 
 **Answer:**
 `React.Fragment` is used to group multiple elements without adding an extra node to the DOM. It is useful when you need to return multiple elements from a component.
@@ -2018,7 +3108,7 @@ Example:
 
 ---
 
-### **16. What is the difference between `useState` and `useReducer`?**
+### **27. What is the difference between `useState` and `useReducer`?**
 
 **Answer:**
 
@@ -2026,6 +3116,7 @@ Example:
 
   - Used for managing simple state.
   - Example: `const [count, setCount] = useState(0);`
+
 - **useReducer:**
 
   - Used for managing complex state logic.
@@ -2037,7 +3128,7 @@ Example:
 
 ---
 
-### **17. What is code splitting in React?**
+### **28. What is code splitting in React?**
 
 **Answer:**
 Code splitting is a technique used to split your code into smaller bundles that can be loaded on demand. This improves the performance of your application by reducing the initial load time. React provides `React.lazy` and `Suspense` for code splitting.
@@ -2045,7 +3136,7 @@ Code splitting is a technique used to split your code into smaller bundles that 
 Example:
 
 ```jsx
-const LazyComponent = React.lazy(() => import('./LazyComponent'));
+const LazyComponent = React.lazy(() => import("./LazyComponent"));
 
 function App() {
   return (
@@ -2055,45 +3146,5 @@ function App() {
   );
 }
 ```
-
----
-
-### **18. What are Higher-Order Components (HOCs)?**
-
-**Answer:**
-A Higher-Order Component (HOC) is a function that takes a component and returns a new component. It is used to share common functionality between components.
-
-Example:
-
-```jsx
-function withLogging(WrappedComponent) {
-  return function(props) {
-    console.log('Rendered:', WrappedComponent.name);
-    return <WrappedComponent {...props} />;
-  };
-}
-```
-
----
-
-### **19. What is prop drilling, and how can you avoid it?**
-
-**Answer:**
-Prop drilling is the process of passing props through multiple levels of components. It can make the code harder to maintain. You can avoid prop drilling by using:
-
-- **React Context**
-- **State management libraries like Redux or Zustand**
-
----
-
-### **20. What are some performance optimization techniques in React?**
-
-**Answer:**
-
-- Use `React.memo` to memoize functional components.
-- Use `useMemo` and `useCallback` to memoize values and functions.
-- Implement code splitting using `React.lazy` and `Suspense`.
-- Avoid unnecessary re-renders by optimizing state and props.
-- Use the `key` prop correctly in lists.
 
 ---
