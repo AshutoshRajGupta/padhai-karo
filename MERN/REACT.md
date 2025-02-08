@@ -288,3 +288,14 @@ const expensiveCalculation = useMemo(() => computeExpensiveValue(data), [data]);
 | **Performance**   | Optimized with Virtual DOM, lazy loading, and memoization |
 
 ---
+
+
+
+# Form Handling in react
+
+
+![1739036994122](image/REACT/1739036994122.png)
+
+![1739037080712](image/REACT/1739037080712.png)
+
+![1739037122102](image/REACT/1739037122102.png)
