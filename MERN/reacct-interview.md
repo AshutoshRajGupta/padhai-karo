@@ -387,7 +387,6 @@ $199
 [Add to Cart]
 ```
 
-
 ---
 
 ### **Parent-Child Relationship in React Using Props**
@@ -398,7 +397,7 @@ In this scenario:
 
 ✔ **`UserCard.js` is the child component.**
 
-✔ Data (like `name` and `desc`) is passed  **from the parent (`App.js`) to the child (`UserCard`) via props** .
+✔ Data (like `name` and `desc`) is passed **from the parent (`App.js`) to the child (`UserCard`) via props** .
 
 This is the **standard way to pass data** from a parent to a child in React.
 
@@ -409,8 +408,8 @@ This is the **standard way to pass data** from a parent to a child in React.
 #### **🖥️ `App.js` (Parent Component)**
 
 ```jsx
-import React from 'react';
-import UserCard from './UserCard';
+import React from "react";
+import UserCard from "./UserCard";
 
 const App = () => {
   const name = "John Doe";
@@ -432,7 +431,7 @@ export default App;
 #### **🖥️ `UserCard.js` (Child Component)**
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 const UserCard = (props) => {
   return (
@@ -454,16 +453,16 @@ export default UserCard;
 
 ✔ **`UserCard.js` receives these props** and accesses them using `props.name` and `props.desc`.
 
-✔ This allows  **data to flow from the parent (`App.js`) to the child (`UserCard`) dynamically** .
+✔ This allows **data to flow from the parent (`App.js`) to the child (`UserCard`) dynamically** .
 
 ---
 
 ### **📝 Summary**
 
-| Component       | Role                       | Purpose                                                  |
-| --------------- | -------------------------- | -------------------------------------------------------- |
+| Component     | Role                 | Purpose                                            |
+| ------------- | -------------------- | -------------------------------------------------- |
 | `App.js`      | **Parent Component** | Passes data (`name`,`desc`) to `UserCard`via props |
-| `UserCard.js` | **Child Component**  | Receives props and displays the passed data              |
+| `UserCard.js` | **Child Component**  | Receives props and displays the passed data        |
 
 ---
 
@@ -569,13 +568,16 @@ export default Counter;
 
    - In the functional component, `useState(0)` initializes the `count` state variable with a value of `0`.
    - In the class component, the state is initialized in the constructor with `this.state = { count: 0 }`.
+
 2. **Updating State**:
 
    - In the functional component, the `setCount` function is used to update the `count` state.
    - In the class component, `this.setState` is used to update the `count` state.
+
 3. **Re-rendering**:
 
    - When the state changes (e.g., `count` is incremented), React automatically re-renders the component to display the updated value.
+
 4. **Event Handling**:
 
    - The `onClick` event on the button triggers the `increment` function, which updates the state.
@@ -643,10 +645,12 @@ The `useState` hook is a built-in React function that allows functional componen
 
    - You call `useState(initialValue)` to create a state variable.
    - It returns an array with two elements: the current state value and a function to update the state.
+
 2. **Updating State**:
 
    - You call the update function (e.g., `setState(newValue)`) to change the state.
    - React re-renders the component with the new state value.
+
 3. **Re-rendering**:
 
    - Whenever the state changes, React automatically re-renders the component to reflect the updated state.
@@ -692,10 +696,12 @@ export default ClickCounter;
    - `const [count, setCount] = useState(0);` initializes a state variable `count` with an initial value of `0`.
    - `count` is the current state value.
    - `setCount` is the function used to update the state.
+
 2. **Step 2: Update State**:
 
    - When the button is clicked, the `handleClick` function is called.
    - Inside `handleClick`, `setCount(count + 1)` updates the `count` state by incrementing it by 1.
+
 3. **Step 3: Re-render**:
 
    - When `setCount` is called, React re-renders the component with the new value of `count`.
@@ -734,12 +740,15 @@ Button Clicked: 2 times
 
    - `useState` is straightforward and requires minimal setup.
    - It replaces the need for class components and `this.setState`.
+
 2. **State is Local**:
 
    - The state created with `useState` is local to the component where it is declared.
+
 3. **Re-renders on Update**:
 
    - Whenever the state is updated, React re-renders the component to reflect the new state.
+
 4. **Multiple State Variables**:
 
    - You can use `useState` multiple times in a single component to manage different pieces of state.
@@ -826,11 +835,9 @@ The `useState` hook is a simple and powerful way to manage state in functional c
 
 ---
 
-
-
 ### **📌 What is State Lifting in React?**
 
-State lifting is a concept in React where you  **move the state from a child component to a parent component** . This allows the parent to manage the state and share it with multiple child components.
+State lifting is a concept in React where you **move the state from a child component to a parent component** . This allows the parent to manage the state and share it with multiple child components.
 
 ### **✅ Why Lift State?**
 
@@ -842,12 +849,12 @@ State lifting is a concept in React where you  **move the state from a child com
 
 ## **🚀 Example: Without State Lifting (Wrong Approach)**
 
-Each child component manages its own state separately, leading to  **isolated state issues** .
+Each child component manages its own state separately, leading to **isolated state issues** .
 
 ### **🖥️ `ChildA.js`**
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ChildA = () => {
   const [count, setCount] = useState(0);
@@ -866,7 +873,7 @@ export default ChildA;
 ### **🖥️ `ChildB.js`**
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ChildB = () => {
   const [count, setCount] = useState(0);
@@ -884,7 +891,7 @@ export default ChildB;
 
 ### **🔍 Issue:**
 
-Each child component has its own state, so  **they are not sharing the same count value** .
+Each child component has its own state, so **they are not sharing the same count value** .
 
 ---
 
@@ -895,9 +902,9 @@ We **lift the state up** to a common **parent component** (`Parent.js`) and pass
 ### **🖥️ `Parent.js` (Manages State)**
 
 ```jsx
-import React, { useState } from 'react';
-import ChildA from './ChildA';
-import ChildB from './ChildB';
+import React, { useState } from "react";
+import ChildA from "./ChildA";
+import ChildB from "./ChildB";
 
 const Parent = () => {
   const [count, setCount] = useState(0);
@@ -962,30 +969,28 @@ export default ChildB;
 
 ## **📌 Summary**
 
-| Concept                         | Explanation                                                                                                           |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Concept                   | Explanation                                                                                                     |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | **State Lifting**         | Moving state**from a child component to a parent component**so that multiple children can share the same state. |
-| **Without State Lifting** | Each child component has its own state, making it hard to synchronize data.                                           |
+| **Without State Lifting** | Each child component has its own state, making it hard to synchronize data.                                     |
 | **With State Lifting**    | The parent manages the state and**shares it with child components via props** .                                 |
 
 🚀 **State lifting makes it easier to share and manage data between multiple components!**
 
 ---
 
-
-
 ### **📌 Understanding State Lifting vs. Just Passing Props**
 
-You're absolutely right that in both cases,  **data is passed from parent to child using props** , making them seem similar. However, the key difference is **where the state is managed** and  **how the data is shared or updated** .
+You're absolutely right that in both cases, **data is passed from parent to child using props** , making them seem similar. However, the key difference is **where the state is managed** and **how the data is shared or updated** .
 
 ---
 
 ## **🚀 Without State Lifting (Each Child Manages Its Own State)**
 
-* Each child  **manages its own state internally** .
-* **Children cannot directly share data** with each other.
-* If two child components need the same data, they each  **maintain their own copies** , leading to  **unsynchronized states** .
-* **Parent does not control the data** .
+- Each child **manages its own state internally** .
+- **Children cannot directly share data** with each other.
+- If two child components need the same data, they each **maintain their own copies** , leading to **unsynchronized states** .
+- **Parent does not control the data** .
 
 ### **🖥️ Example:**
 
@@ -1025,18 +1030,18 @@ export default ChildB;
 
 ### **🔍 Problem:**
 
-* `ChildA` and `ChildB` each maintain their own  **separate count state** .
-* If `ChildA` increases its count, `ChildB`  **remains unchanged** .
-* **No shared data, no synchronization.**
+- `ChildA` and `ChildB` each maintain their own **separate count state** .
+- If `ChildA` increases its count, `ChildB` **remains unchanged** .
+- **No shared data, no synchronization.**
 
 ---
 
 ## **🚀 With State Lifting (Parent Manages State)**
 
-* The  **state is moved to the parent component** .
-* The **parent manages the state** and passes it down to both children  **via props** .
-* When one child updates the state,  **the parent updates it** , and  **all children receive the new value automatically** .
-* **Children don’t have their own copies of state anymore** , they rely on the  **parent for data updates** .
+- The **state is moved to the parent component** .
+- The **parent manages the state** and passes it down to both children **via props** .
+- When one child updates the state, **the parent updates it** , and **all children receive the new value automatically** .
+- **Children don’t have their own copies of state anymore** , they rely on the **parent for data updates** .
 
 ### **🖥️ Example:**
 
@@ -1090,11 +1095,11 @@ export default ChildB;
 
 ### **🔍 What Happens Now?**
 
-✔  **Parent (`Parent.js`) manages `count` state** .
+✔ **Parent (`Parent.js`) manages `count` state** .
 
-✔  **Children (`ChildA.js` and `ChildB.js`) receive `count` via props** .
+✔ **Children (`ChildA.js` and `ChildB.js`) receive `count` via props** .
 
-✔  **When `ChildA` increases the count, the parent updates the state, and both `ChildA` & `ChildB` receive the new value** .
+✔ **When `ChildA` increases the count, the parent updates the state, and both `ChildA` & `ChildB` receive the new value** .
 
 ✔ **Now both components stay synchronized!**
 
@@ -1102,8 +1107,8 @@ export default ChildB;
 
 ## **📌 Key Differences**
 
-| Feature                   | Without State Lifting            | With State Lifting              |
-| ------------------------- | -------------------------------- | ------------------------------- |
+| Feature             | Without State Lifting            | With State Lifting              |
+| ------------------- | -------------------------------- | ------------------------------- |
 | **State Location**  | Each child has its own state     | The parent manages the state    |
 | **Data Sharing**    | No sharing between children      | Data is shared via props        |
 | **Synchronization** | No sync between components       | Updates reflect in all children |
@@ -1113,18 +1118,17 @@ export default ChildB;
 
 ## **📌 Final Summary**
 
-* **Props:** Always pass data from parent to child, but the child  **does not control the data** —it just receives it.
-* **State Lifting:** Moves state  **from children to the parent** , so the parent can **control and share** data between multiple children.
-* **Why?**
+- **Props:** Always pass data from parent to child, but the child **does not control the data** —it just receives it.
+- **State Lifting:** Moves state **from children to the parent** , so the parent can **control and share** data between multiple children.
+- **Why?**
 
-  ✔ If  **multiple children need the same data** , state lifting ensures  **better synchronization** .
+  ✔ If **multiple children need the same data** , state lifting ensures **better synchronization** .
 
-  ✔ **Centralized state management** makes updates  **easier to handle** .
+  ✔ **Centralized state management** makes updates **easier to handle** .
 
 🚀 **State lifting helps React applications manage shared state efficiently!**
 
 ---
-
 
 ### 5. Definition of JSX
 
@@ -1302,11 +1306,11 @@ function App() {
 
 ### JSX vs HTML
 
-| Feature                     | JSX                                      | HTML                                  |
-| --------------------------- | ---------------------------------------- | ------------------------------------- |
+| Feature               | JSX                                    | HTML                                |
+| --------------------- | -------------------------------------- | ----------------------------------- |
 | **Class Attribute**   | `className`                            | `class`                             |
 | **Inline Styles**     | Object (e.g.,`style={{color: 'red'}}`) | String (e.g.,`style="color: red;"`) |
-| **JavaScript**        | Embed with `{}`                        | Not possible                          |
+| **JavaScript**        | Embed with `{}`                        | Not possible                        |
 | **Self-Closing Tags** | Mandatory (e.g.,`<img />`)             | Optional (e.g.,`<img>`)             |
 
 ---
@@ -1391,6 +1395,7 @@ JSX is a powerful and intuitive way to write UI components in React. It combines
   - State is managed within a component (like a variable declared inside a function).
   - It is mutable and can be updated using `setState` in class components or the `useState` hook in functional components.
   - State is local to the component and cannot be accessed by child components unless passed as props.
+
 - **Props:**
 
   - Props (short for properties) are used to pass data from a parent component to a child component.
@@ -1415,9 +1420,11 @@ Keys are like IDs for list items in React. They help React keep track of each it
 1. **Efficient Updates**:
 
    - Keys help React identify which items have changed, been added, or been removed, so it only updates the necessary parts of the UI.
+
 2. **Stable Identity**:
 
    - Keys provide a stable identity for list items, even if their order or position changes.
+
 3. **Avoiding Bugs**:
 
    - Without keys, React might incorrectly re-render or reuse elements, leading to bugs like incorrect input values or focus states.
@@ -1468,12 +1475,15 @@ export default TodoList;
 1. **List of Todos**:
 
    - We have an array of `todos`, where each todo is an object with an `id` and `text`.
+
 2. **Rendering with `map`**:
 
    - The `map` function is used to iterate over the `todos` array and create a list item (`<li>`) for each todo.
+
 3. **Using Keys**:
 
    - Each `<li>` element is assigned a `key` prop with the value of `todo.id`. This ensures that each item has a unique identifier.
+
 4. **Output**:
 
    - The rendered list will look like this:
@@ -1561,9 +1571,11 @@ export default DynamicTodoList;
 
    - The `todos` array is stored in state using the `useState` hook.
    - The `addTodo` function adds a new todo to the list.
+
 2. **Rendering with Keys**:
 
    - Each `<li>` element is assigned a unique `key` using `todo.id`.
+
 3. **Dynamic Updates**:
 
    - When the "Add Todo" button is clicked, a new todo is added to the list, and React efficiently updates the UI.
@@ -1600,6 +1612,7 @@ Dynamic Todo List
 1. **Unique Identifier**:
 
    - Keys should be unique among siblings (e.g., `todo.id`).
+
 2. **Avoid Using Index as Key**:
 
    - Using the array index as a key can cause issues if the list order changes. Always use a stable, unique identifier if possible.
@@ -1611,6 +1624,7 @@ Dynamic Todo List
      todos.map((todo, index) => <li key={index}>{todo.text}</li>);
    }
    ```
+
 3. **Keys and Performance**:
 
    - Keys help React optimize rendering, improving performance for large lists.
@@ -1794,13 +1808,13 @@ export default Cart;
 
 ## 🔹 **Common React Hooks**
 
-| Hook           | Purpose                                                  |
-| -------------- | -------------------------------------------------------- |
+| Hook         | Purpose                                                  |
+| ------------ | -------------------------------------------------------- |
 | `useState`   | Manages state in functional components.                  |
 | `useEffect`  | Handles side effects (like API calls, subscriptions).    |
 | `useContext` | Provides global state management.                        |
 | `useRef`     | Creates references to DOM elements without re-rendering. |
-| `useReducer` | Similar to `useState`but for complex state logic.      |
+| `useReducer` | Similar to `useState`but for complex state logic.        |
 
 ---
 
@@ -1966,11 +1980,11 @@ The `useEffect` hook in React allows you to perform side effects in functional c
 
 ## **📌 Why Do We Use `useEffect()` in React?**
 
-In simple terms,  **`useEffect()` is used to handle side effects in React components** .
+In simple terms, **`useEffect()` is used to handle side effects in React components** .
 
 ### **✅ What are Side Effects?**
 
-A side effect is  **anything that happens outside the component’s main rendering process** , such as:
+A side effect is **anything that happens outside the component’s main rendering process** , such as:
 
 ✔ Fetching data from an API
 
@@ -1984,7 +1998,7 @@ A side effect is  **anything that happens outside the component’s main renderi
 
 ## **📌 Why Do We Need `useEffect()`?**
 
-In React, when a component  **renders or re-renders** , we don’t want side effects to run  **unnecessarily** .
+In React, when a component **renders or re-renders** , we don’t want side effects to run **unnecessarily** .
 
 💡 **`useEffect()` helps us control when side effects should run!**
 
@@ -2008,7 +2022,7 @@ function ProductList() {
 }
 ```
 
-✔  **Without `useEffect()`** , the API call would happen  **on every re-render** .
+✔ **Without `useEffect()`** , the API call would happen **on every re-render** .
 
 ✔ **With `useEffect()`,** the API call happens **only once** when the component mounts.
 
@@ -2016,7 +2030,7 @@ function ProductList() {
 
 ### **🚀 Example 2: Update Page Title When Cart Items Change**
 
-We only want to update the title  **when the cart changes** , not on every re-render.
+We only want to update the title **when the cart changes** , not on every re-render.
 
 ```jsx
 import React, { useState, useEffect } from "react";
@@ -2030,16 +2044,16 @@ function ShoppingCart({ cartItems }) {
 }
 ```
 
-✔  **Without `useEffect()`** , the page title would update  **on every render** .
+✔ **Without `useEffect()`** , the page title would update **on every render** .
 
-✔ **With `useEffect()`,** it updates  **only when cartItems change** .
+✔ **With `useEffect()`,** it updates **only when cartItems change** .
 
 ---
 
 ## **📌 Summary: Why Use `useEffect()`?**
 
-| Scenario                           | Why `useEffect()`is Needed                          |
-| ---------------------------------- | ----------------------------------------------------- |
+| Scenario                           | Why `useEffect()`is Needed                      |
+| ---------------------------------- | ----------------------------------------------- |
 | Fetching data                      | To**fetch once on mount** , not every re-render |
 | Updating page title                | To**update only when a specific state changes** |
 | Event listeners (scroll, keypress) | To**add/remove listeners properly**             |
@@ -2055,11 +2069,13 @@ function ShoppingCart({ cartItems }) {
 
    - The code inside `useEffect` runs after the component renders.
    - This ensures that the side effect doesn’t block the rendering process.
+
 2. **Dependency Array**:
 
    - You can control when `useEffect` runs by passing a dependency array.
    - If the array is empty, `useEffect` runs only once (after the first render).
    - If the array contains values, `useEffect` runs whenever those values change.
+
 3. **Cleanup**:
 
    - If your effect sets up something that needs to be cleaned up (e.g., a subscription or timer), you can return a cleanup function from `useEffect`.
@@ -2073,13 +2089,18 @@ In React, the `useEffect` hook is used to perform **side effects** in function c
 ## **Basic Syntax:**
 
 ```jsx
-useEffect(() => {
-  // Your side effect code here
-}, [/* dependencies */]);
+useEffect(
+  () => {
+    // Your side effect code here
+  },
+  [
+    /* dependencies */
+  ]
+);
 ```
 
-* The **first argument** is a function that will run after the render.
-* The **second argument** is a dependency array that tells React when to run the effect.
+- The **first argument** is a function that will run after the render.
+- The **second argument** is a dependency array that tells React when to run the effect.
 
 ---
 
@@ -2087,21 +2108,21 @@ useEffect(() => {
 
 ### **1️⃣ Without Dependencies (Runs after every render)**
 
-If you don't provide a dependency array, the `useEffect` will run  **after every render** .
+If you don't provide a dependency array, the `useEffect` will run **after every render** .
 
 ### **2️⃣ With Dependencies (Runs only when dependencies change)**
 
-You can pass an **array of variables** inside the dependency array. The effect will  **only run when one of those variables changes** .
+You can pass an **array of variables** inside the dependency array. The effect will **only run when one of those variables changes** .
 
 ### **3️⃣ Empty Dependency Array (Runs only once)**
 
-If you pass an  **empty array `[]`** , the effect will run **only once** when the component mounts (like `componentDidMount` in class components).
+If you pass an **empty array `[]`** , the effect will run **only once** when the component mounts (like `componentDidMount` in class components).
 
 ---
 
 ## **Cleanup Function in `useEffect`:**
 
-Sometimes, when you perform side effects like fetching data or subscribing to events, you need to **clean up** when the component **unmounts** or before the effect runs again. This is done using a  **cleanup function** .
+Sometimes, when you perform side effects like fetching data or subscribing to events, you need to **clean up** when the component **unmounts** or before the effect runs again. This is done using a **cleanup function** .
 
 The cleanup function is **returned** from the function passed to `useEffect`.
 
@@ -2113,7 +2134,7 @@ useEffect(() => {
   return () => {
     console.log("Component unmounted");
   };
-}, []);  // Empty array, so runs only once
+}, []); // Empty array, so runs only once
 ```
 
 ---
@@ -2121,7 +2142,7 @@ useEffect(() => {
 ## **Example with Fetching Data:**
 
 ```jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 function FetchDataComponent() {
   const [data, setData] = useState(null);
@@ -2129,7 +2150,7 @@ function FetchDataComponent() {
   useEffect(() => {
     // Fetch data when component mounts
     const fetchData = async () => {
-      const response = await fetch('https://api.example.com/data');
+      const response = await fetch("https://api.example.com/data");
       const result = await response.json();
       setData(result);
     };
@@ -2140,7 +2161,7 @@ function FetchDataComponent() {
     return () => {
       console.log("Cleanup on unmount or before next effect.");
     };
-  }, []);  // Empty array means this runs only once
+  }, []); // Empty array means this runs only once
 
   return <div>{data ? JSON.stringify(data) : "Loading..."}</div>;
 }
@@ -2150,13 +2171,13 @@ function FetchDataComponent() {
 
 ## **Summary:**
 
-✅ `useEffect` is for  **running side effects after renders** .
+✅ `useEffect` is for **running side effects after renders** .
 
 ✅ **Dependency Array** lets you control when the effect runs:
 
-* `[]` → runs only **once** when the component mounts.
-* `[x]` → runs  **when `x` changes** .
-* No array → runs  **after every render** .
+- `[]` → runs only **once** when the component mounts.
+- `[x]` → runs **when `x` changes** .
+- No array → runs **after every render** .
 
   ✅ **Cleanup function** helps you **clean up side effects** when the component unmounts or before the effect runs again.
 
@@ -2198,31 +2219,31 @@ The sequence of events when using `useEffect` in React can sometimes be a bit tr
 
 ### **1️⃣ Component Renders (First Time):**
 
-* When a component is  **rendered for the first time** , React renders the component and updates the DOM (if necessary).
-* This includes executing the component's body, setting up state (`useState`), handling props, and any other logic.
-* **After the render is complete** , React then executes the `useEffect` hook.
-* **Note:** The code inside `useEffect` **does not block** the render. React completes the rendering process first, then executes the effect (side effect).
+- When a component is **rendered for the first time** , React renders the component and updates the DOM (if necessary).
+- This includes executing the component's body, setting up state (`useState`), handling props, and any other logic.
+- **After the render is complete** , React then executes the `useEffect` hook.
+- **Note:** The code inside `useEffect` **does not block** the render. React completes the rendering process first, then executes the effect (side effect).
 
 ### **2️⃣ Effect Execution:**
 
-* After the DOM update and render, React runs the function inside `useEffect`.
-* If there are  **dependencies** , React checks if any dependencies have changed since the last render:
-  * **If they have changed** , the effect runs.
-  * **If not** , the effect does not run (unless it's the first render).
+- After the DOM update and render, React runs the function inside `useEffect`.
+- If there are **dependencies** , React checks if any dependencies have changed since the last render:
+  - **If they have changed** , the effect runs.
+  - **If not** , the effect does not run (unless it's the first render).
 
 ### **3️⃣ Cleanup (If Any):**
 
-* If there is a **cleanup function** inside `useEffect` (using `return`), React will run it before:
-  * Re-running the effect (on subsequent renders).
-  * Unmounting the component.
-* This ensures that **old side effects are cleared** before new ones are set up.
+- If there is a **cleanup function** inside `useEffect` (using `return`), React will run it before:
+  - Re-running the effect (on subsequent renders).
+  - Unmounting the component.
+- This ensures that **old side effects are cleared** before new ones are set up.
 
 ---
 
 ## **Example with Sequence:**
 
 ```jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 function MyComponent() {
   const [count, setCount] = useState(0);
@@ -2235,7 +2256,7 @@ function MyComponent() {
     return () => {
       console.log("Cleanup for count:", count);
     };
-  }, [count]);  // Effect runs when count changes
+  }, [count]); // Effect runs when count changes
 
   return (
     <div>
@@ -2251,36 +2272,36 @@ function MyComponent() {
 ## **Sequence Breakdown:**
 
 1. **Initial Render:**
-   * The component renders.
-   * `useEffect` runs for the first time because it's the initial render.
+   - The component renders.
+   - `useEffect` runs for the first time because it's the initial render.
 2. **First Render Log:**
-   * The button is displayed.
-   * `count` state is set to `0`.
+   - The button is displayed.
+   - `count` state is set to `0`.
 3. **When the Button is Clicked (count changes):**
-   * Component re-renders because `count` has changed.
-   * **Before React runs the effect again** , it first runs the  **cleanup function** .
+   - Component re-renders because `count` has changed.
+   - **Before React runs the effect again** , it first runs the **cleanup function** .
 4. **Cleanup Log:**
-   * After cleanup, React runs `useEffect` again with the updated count value.
+   - After cleanup, React runs `useEffect` again with the updated count value.
 5. **Effect Log After Count is Updated:**
-   * Logs the current value of `count` in the effect.
+   - Logs the current value of `count` in the effect.
 
 ---
 
 ## **Key Points to Remember:**
 
-* The `useEffect` function  **always runs after the render is complete** .
-* It  **does not block the render process** ; the component renders first, then the effect runs.
-* If there are dependencies in the **dependency array** (like `[count]`), the effect runs again  **only if those dependencies change** .
-* The **cleanup function** (if present) runs **before the effect is re-executed** or when the component unmounts.
+- The `useEffect` function **always runs after the render is complete** .
+- It **does not block the render process** ; the component renders first, then the effect runs.
+- If there are dependencies in the **dependency array** (like `[count]`), the effect runs again **only if those dependencies change** .
+- The **cleanup function** (if present) runs **before the effect is re-executed** or when the component unmounts.
 
 ---
 
 ## **Visualizing the Flow:**
 
 1. **First Render:**
-   * **Render** → **Effect runs** → **Cleanup** *(None on first render)*
+   - **Render** → **Effect runs** → **Cleanup** _(None on first render)_
 2. **Subsequent Renders (when dependencies change):**
-   * **Cleanup (previous effect)** → **Render** → **Effect runs** → **Prepare Cleanup for Next Render**
+   - **Cleanup (previous effect)** → **Render** → **Effect runs** → **Prepare Cleanup for Next Render**
 
 ---
 
@@ -2298,7 +2319,7 @@ Cleanup for count: 1      // Cleanup before effect re-runs
 
 ## **Interview-Friendly Summary:**
 
-*"The `useEffect` hook in React runs after the component renders. It can re-run based on dependencies or run only once during mounting. The cleanup function ensures any old effects are removed before new ones are set or before the component unmounts. This makes `useEffect` essential for managing side effects like data fetching or subscriptions."*
+_"The `useEffect` hook in React runs after the component renders. It can re-run based on dependencies or run only once during mounting. The cleanup function ensures any old effects are removed before new ones are set or before the component unmounts. This makes `useEffect` essential for managing side effects like data fetching or subscriptions."_
 
 Let me know if you need more clarifications or examples! 🚀😊
 
@@ -2309,11 +2330,13 @@ Let me know if you need more clarifications or examples! 🚀😊
 1. **Runs After Render**:
 
    - `useEffect` runs after the component renders, ensuring the UI is updated first.
+
 2. **Dependency Array**:
 
    - Use the dependency array to control when `useEffect` runs.
    - Empty array `[]`: Runs once after the first render.
    - Array with values `[value]`: Runs whenever `value` changes.
+
 3. **Cleanup**:
 
    - Return a cleanup function to clean up resources (e.g., timers, subscriptions) when the component unmounts or before the effect runs again.
@@ -2329,6 +2352,152 @@ The `useEffect` hook is a powerful tool for managing side effects in React. In o
 - Set up and clean up a timer.
 
 By understanding `useEffect`, you can handle side effects like data fetching, subscriptions, and timers in a clean and efficient way.
+
+---
+
+### **📌 What is `useContext` in React?**
+
+`useContext` is a React Hook that **allows us to access data globally** without manually passing props through every level of the component tree.
+
+---
+
+## **🚀 Why do we need `useContext`?**
+
+### **💡 The Problem: "Prop Drilling"**
+
+- Normally, data is passed **from parent to child using props** .
+- If a **deeply nested component** needs the data, we must pass it through **multiple components** .
+- This makes the code **messy and hard to maintain** .
+
+🔴 **Without `useContext` (Prop Drilling)**
+
+```jsx
+// App.js (Top-Level Parent)
+import React, { useState } from "react";
+import Parent from "./Parent";
+
+const App = () => {
+  const [user, setUser] = useState("John Doe");
+
+  return (
+    <div>
+      <Parent user={user} />
+    </div>
+  );
+};
+
+export default App;
+
+// Parent.js (Middle Component)
+import Child from "./Child";
+
+const Parent = ({ user }) => {
+  return <Child user={user} />;
+};
+
+export default Parent;
+
+// Child.js (Deeply Nested Component)
+const Child = ({ user }) => {
+  return <h2>Welcome, {user}!</h2>;
+};
+
+export default Child;
+```
+
+### **🔍 Problems Here:**
+
+✔ Data (`user`) is passed **through multiple components** (App → Parent → Child).
+
+✔ If we add more components, **this will get worse** .
+
+---
+
+## **🚀 Solution: `useContext` (No Prop Drilling)**
+
+With `useContext`, we **store the data in a central place (Context API)** and **any component can access it directly** .
+
+### **🖥️ Example: Using `useContext`**
+
+```jsx
+// UserContext.js (Creating Context)
+import { createContext } from "react";
+export const UserContext = createContext();
+```
+
+```jsx
+// App.js (Providing Context)
+import React, { useState } from "react";
+import Parent from "./Parent";
+import { UserContext } from "./UserContext";
+
+const App = () => {
+  const [user, setUser] = useState("John Doe");
+
+  return (
+    <UserContext.Provider value={user}>
+      <Parent />
+    </UserContext.Provider>
+  );
+};
+
+export default App;
+```
+
+```jsx
+// Parent.js (No need to pass props)
+import Child from "./Child";
+
+const Parent = () => {
+  return <Child />;
+};
+
+export default Parent;
+```
+
+```jsx
+// Child.js (Using Context)
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
+
+const Child = () => {
+  const user = useContext(UserContext);
+
+  return <h2>Welcome, {user}!</h2>;
+};
+
+export default Child;
+```
+
+---
+
+## **📌 What Happened Here?**
+
+✔ **Created a Context (`UserContext`)** to store user data globally.
+
+✔ **Wrapped `UserContext.Provider` around components** so that all components can access `user`.
+
+✔ **Used `useContext(UserContext)` in `Child.js`** to get the value **without prop drilling** .
+
+---
+
+## **📌 Key Benefits of `useContext`**
+
+✅ **No Prop Drilling** – Data is accessed directly without passing through multiple components.
+
+✅ **Cleaner Code** – Components remain independent and **easier to manage** .
+
+✅ **Better Scalability** – Ideal for **global state management** in large applications.
+
+---
+
+## **📌 Final Summary**
+
+- `useContext` **solves the problem of prop drilling** by providing a **centralized way** to manage shared data.
+- Instead of passing props **through multiple layers** , any component can **directly access the data** from context.
+- Perfect for scenarios like **user authentication, themes, language settings, and global state management** .
+
+🚀 **Using `useContext` makes React apps more efficient and scalable!**
 
 ---
 
@@ -2447,12 +2616,12 @@ export default function App() {
 
 ## **📌 Summary**
 
-| **Method** | **Best For**              |
-| ---------------- | ------------------------------- |
-| `if-else`      | Complex conditions              |
-| Ternary `? :`  | Simple inline conditions        |
-| Logical `&&`   | Rendering one element when true |
-| `switch-case`  | Handling multiple states        |
+| **Method**    | **Best For**                    |
+| ------------- | ------------------------------- |
+| `if-else`     | Complex conditions              |
+| Ternary `? :` | Simple inline conditions        |
+| Logical `&&`  | Rendering one element when true |
+| `switch-case` | Handling multiple states        |
 
 🚀 **Conditional rendering makes React apps dynamic, interactive, and user-friendly!**
 
@@ -2561,13 +2730,13 @@ export default UncontrolledForm;
 
 ## 📊 **Key Differences: Controlled vs. Uncontrolled Components**
 
-| Feature                  | Controlled Component                   | Uncontrolled Component                                      |
-| ------------------------ | -------------------------------------- | ----------------------------------------------------------- |
-| **Data Storage**   | Stored in React state (`useState`)   | Stored in the DOM (`useRef`)                              |
-| **Value Handling** | Controlled via `onChange`            | Accessed via `ref`                                        |
+| Feature            | Controlled Component                   | Uncontrolled Component                                      |
+| ------------------ | -------------------------------------- | ----------------------------------------------------------- |
+| **Data Storage**   | Stored in React state (`useState`)     | Stored in the DOM (`useRef`)                                |
+| **Value Handling** | Controlled via `onChange`              | Accessed via `ref`                                          |
 | **Performance**    | More re-renders (on every change)      | Better performance (fewer updates)                          |
 | **Best Use Case**  | When React needs to control UI updates | When working with third-party libraries (like file uploads) |
-| **Example**        | Input field with state management      | File upload input (`<input type="file">`)                 |
+| **Example**        | Input field with state management      | File upload input (`<input type="file">`)                   |
 
 ---
 
@@ -2746,10 +2915,12 @@ function ProductList() {
 
    - The second argument to `useMemo` is an array of dependencies.
    - Example: `[cart]` means “recalculate only if `cart` changes.”
+
 2. **When Not to Use `useMemo`**:
 
    - For simple calculations (e.g., adding two numbers).
    - Overusing it can make code harder to read.
+
 3. **Difference from `useCallback`**:
 
    - `useMemo` memoizes **values**.
@@ -2892,8 +3063,8 @@ export default App;
 
 ## **📊 When to Use HOCs?**
 
-| Use Case                 | Example                                       |
-| ------------------------ | --------------------------------------------- |
+| Use Case           | Example                                       |
+| ------------------ | --------------------------------------------- |
 | **Authentication** | Restrict access based on user roles           |
 | **Logging**        | Track user interactions (clicks, views)       |
 | **API Fetching**   | Automatically fetch data and pass it as props |
@@ -2937,8 +3108,8 @@ In React, every component goes through a **lifecycle** with different phases. Th
 
 ### **Key Lifecycle Methods in Mounting Phase:**
 
-| Method                                            | Description                                                                 |
-| ------------------------------------------------- | --------------------------------------------------------------------------- |
+| Method                                          | Description                                                                 |
+| ----------------------------------------------- | --------------------------------------------------------------------------- |
 | `constructor()`                                 | Initializes the component (sets initial state & props).                     |
 | `static getDerivedStateFromProps(props, state)` | Updates state based on props before rendering.                              |
 | `render()`                                      | Returns the JSX (UI) for the component.                                     |
@@ -2999,8 +3170,8 @@ export default Product;
 
 ### **Key Lifecycle Methods in Updating Phase:**
 
-| Method                                            | Description                                                              |
-| ------------------------------------------------- | ------------------------------------------------------------------------ |
+| Method                                          | Description                                                              |
+| ----------------------------------------------- | ------------------------------------------------------------------------ |
 | `static getDerivedStateFromProps(props, state)` | Updates state before rendering (same as in mounting).                    |
 | `shouldComponentUpdate(nextProps, nextState)`   | Decides whether to re-render or not (used for optimization).             |
 | `render()`                                      | Re-renders the component UI.                                             |
@@ -3073,8 +3244,8 @@ export default Product;
 
 ### **Key Lifecycle Method in Unmounting Phase:**
 
-| Method                     | Description                                                                              |
-| -------------------------- | ---------------------------------------------------------------------------------------- |
+| Method                   | Description                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
 | `componentWillUnmount()` | Cleans up side effects (removes event listeners, stops timers, cancels API calls, etc.). |
 
 ### ✅ **Example: Unmounting Phase**
@@ -3117,17 +3288,17 @@ export default Timer;
 
 ## **📊 Summary of Lifecycle Methods**
 
-| Phase                | Method                         | Purpose                                                    |
-| -------------------- | ------------------------------ | ---------------------------------------------------------- |
+| Phase          | Method                       | Purpose                                                    |
+| -------------- | ---------------------------- | ---------------------------------------------------------- |
 | **Mounting**   | `constructor()`              | Initialize state & props                                   |
-|                      | `getDerivedStateFromProps()` | Sync state with props before rendering                     |
-|                      | `render()`                   | Display UI                                                 |
-|                      | `componentDidMount()`        | Perform side effects (API calls, event listeners)          |
+|                | `getDerivedStateFromProps()` | Sync state with props before rendering                     |
+|                | `render()`                   | Display UI                                                 |
+|                | `componentDidMount()`        | Perform side effects (API calls, event listeners)          |
 | **Updating**   | `getDerivedStateFromProps()` | Sync state with props                                      |
-|                      | `shouldComponentUpdate()`    | Decide if re-render is needed                              |
-|                      | `render()`                   | Display updated UI                                         |
-|                      | `getSnapshotBeforeUpdate()`  | Capture state before update                                |
-|                      | `componentDidUpdate()`       | Run side effects after update                              |
+|                | `shouldComponentUpdate()`    | Decide if re-render is needed                              |
+|                | `render()`                   | Display updated UI                                         |
+|                | `getSnapshotBeforeUpdate()`  | Capture state before update                                |
+|                | `componentDidUpdate()`       | Run side effects after update                              |
 | **Unmounting** | `componentWillUnmount()`     | Cleanup before removal (remove listeners, clear intervals) |
 
 ---
@@ -3335,8 +3506,8 @@ export default ProductDetails;
 
 ## **📌 Summary**
 
-| Feature                       | Description                               |
-| ----------------------------- | ----------------------------------------- |
+| Feature               | Description                               |
+| --------------------- | ----------------------------------------- |
 | **`<BrowserRouter>`** | Wraps the app to enable routing           |
 | **`<Routes>`**        | Groups all route definitions              |
 | **`<Route>`**         | Defines a path and associated component   |
@@ -3395,12 +3566,12 @@ export default function App() {
 
 ## **📌 Pure Components vs Normal Components**
 
-| Feature                          | Normal Component (`Component`)      | Pure Component (`PureComponent`)    |
-| -------------------------------- | ------------------------------------- | ------------------------------------- |
-| Re-rendering                     | Always re-renders when parent updates | Only re-renders if props/state change |
-| Performance                      | Less efficient (more renders)         | More efficient (fewer renders)        |
+| Feature                        | Normal Component (`Component`)        | Pure Component (`PureComponent`)      |
+| ------------------------------ | ------------------------------------- | ------------------------------------- |
+| Re-rendering                   | Always re-renders when parent updates | Only re-renders if props/state change |
+| Performance                    | Less efficient (more renders)         | More efficient (fewer renders)        |
 | Uses `shouldComponentUpdate()` | ❌ No                                 | ✅ Yes (automatic)                    |
-| Best for                         | Small components                      | Large components with unchanged data  |
+| Best for                       | Small components                      | Large components with unchanged data  |
 
 ---
 
@@ -3503,6 +3674,7 @@ const [count, setCount] = useState(0);
   - Use ES6 classes and extend `React.Component`.
   - Have lifecycle methods like `componentDidMount`, `componentDidUpdate`, etc.
   - Use `this.state` and `this.setState` to manage state.
+
 - **Functional Components:**
 
   - Plain JavaScript functions.
@@ -3587,6 +3759,7 @@ Example:
 
   - Used for managing simple state.
   - Example: `const [count, setCount] = useState(0);`
+
 - **useReducer:**
 
   - Used for managing complex state logic.
