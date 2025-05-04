@@ -45,6 +45,17 @@ Because:
 
 Would you like a visual diagram or a simple code example showing how CrewAI sets up a team?
 
-
-
 ![1746355615835](image/crew-ai/1746355615835.png)
+
+![1746355784414](image/crew-ai/1746355784414.png)
+
+
+![1746355837048](image/crew-ai/1746355837048.png)
+
+![1746355855352](image/crew-ai/1746355855352.png)
+
+
+![1746355907394](image/crew-ai/1746355907394.png)
+
+
+![1746355979607](image/crew-ai/1746355979607.png)
