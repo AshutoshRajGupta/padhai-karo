@@ -1,4 +1,3 @@
-
 ### 🧠 What is CrewAI?
 
 **CrewAI** is a Python framework that helps you **build a team of AI agents** that can **work together** to complete complex tasks.
@@ -45,3 +44,7 @@ Because:
 ---
 
 Would you like a visual diagram or a simple code example showing how CrewAI sets up a team?
+
+
+
+![1746355615835](image/crew-ai/1746355615835.png)
