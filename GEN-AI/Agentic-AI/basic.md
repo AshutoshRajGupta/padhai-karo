@@ -70,10 +70,11 @@ It works like a **mini project manager + coder + tester** — all in one.
 
 Would you like to dive deeper into any of these 3 topics? Or do you want an example of how to  **build a simple generative AI or agent** ?
 
-
-
 ---
 
+
+
+![1748767238920](image/basic/1748767238920.png)
 
 ### 2. 🌟 **AI Agents vs Agentic AI: What's the Difference?**
 
@@ -150,11 +151,7 @@ This is **agentic behavior** — it:
 
 Would you like me to show how to build a **basic AI agent using code** or an **agentic system with multiple tools** (like using LangChain or AutoGen)?
 
-
 ---
-
-
-
 
 ## 3. 🧠 How Agentic AI Works (Step-by-Step Breakdown)
 
