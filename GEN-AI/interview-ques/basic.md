@@ -94,7 +94,6 @@ Generative AI follows a structured process involving **four main phases** :
   ✔ **Image Models** (GANs, DALL·E) → Metrics like **FID (Fréchet Inception Distance)**
 
   ✔ **Music/Audio Models** → Evaluated using **human feedback + statistical analysis**
-
 - Human feedback is often used in **Reinforcement Learning with Human Feedback (RLHF)** to improve the model further.
 
 📌 **Example:**
@@ -542,8 +541,8 @@ Where:
 
 ### ✅ **Different variations of GANs include:**
 
-| **Type**                           | **Description**                                             | **Example Use Case**            |
-| ---------------------------------- | ----------------------------------------------------------- | ------------------------------- |
+| **Type**                           | **Description**                                       | **Example Use Case**      |
+| ---------------------------------------- | ----------------------------------------------------------- | ------------------------------- |
 | **Vanilla GAN**                    | Basic GAN with simple Generator and Discriminator           | Image synthesis                 |
 | **DCGAN (Deep Convolutional GAN)** | Uses CNNs instead of simple MLPs                            | AI-generated faces              |
 | **CGAN (Conditional GAN)**         | Adds extra input (labels) to control output                 | Colorization of B/W images      |
@@ -584,8 +583,8 @@ GANs have numerous real-world applications:
 
 While GANs are powerful, they have some challenges:
 
-| **Issue**                | **Description**                                                               |
-| ------------------------ | ----------------------------------------------------------------------------- |
+| **Issue**                | **Description**                                                         |
+| ------------------------------ | ----------------------------------------------------------------------------- |
 | **Mode Collapse**        | The Generator produces only a few similar outputs instead of diverse results. |
 | **Training Instability** | Training is highly sensitive to hyperparameters and may not always converge.  |
 | **Computational Cost**   | GANs require high computational power for training.                           |
@@ -595,12 +594,12 @@ While GANs are powerful, they have some challenges:
 
 ## **8️⃣ How do GANs compare with other generative models?**
 
-| **Feature**             | **GANs**                  | **VAEs (Variational Autoencoders)** | **Autoregressive Models (GPT, BERT)** |
-| ----------------------- | ------------------------- | ----------------------------------- | ------------------------------------- |
-| **Generation Method**   | Adversarial training      | Probabilistic latent space          | Predict next token                    |
-| **Output Quality**      | High-quality but unstable | Smooth & interpretable              | Context-aware text                    |
-| **Training Complexity** | Hard to train             | Easier than GANs                    | Easier                                |
-| **Example**             | StyleGAN, CycleGAN        | Variational Autoencoders (VAEs)     | GPT, BERT                             |
+| **Feature**             | **GANs**            | **VAEs (Variational Autoencoders)** | **Autoregressive Models (GPT, BERT)** |
+| ----------------------------- | ------------------------- | ----------------------------------------- | ------------------------------------------- |
+| **Generation Method**   | Adversarial training      | Probabilistic latent space                | Predict next token                          |
+| **Output Quality**      | High-quality but unstable | Smooth & interpretable                    | Context-aware text                          |
+| **Training Complexity** | Hard to train             | Easier than GANs                          | Easier                                      |
+| **Example**             | StyleGAN, CycleGAN        | Variational Autoencoders (VAEs)           | GPT, BERT                                   |
 
 ---
 
@@ -673,7 +672,6 @@ Transformers are the foundation of models like GPT (for text generation) and BER
   - A **decoder-only** model designed for **text generation**.
   - Trained to predict the next word in a sequence, making it ideal for tasks like text completion, summarization, and dialogue generation.
   - Example: ChatGPT.
-
 - **BERT (Bidirectional Encoder Representations from Transformers):**
 
   - An **encoder-only** model designed for **language understanding**.
@@ -718,7 +716,6 @@ A Large Language Model (LLM) is a type of generative AI model trained on vast am
 
   - The model is trained on labeled data, where the input and corresponding output are provided.
   - Example: Training a model to classify emails as spam or not spam.
-
 - **Unsupervised Learning:**
 
   - The model is trained on unlabeled data and learns patterns or structures without explicit guidance.
@@ -773,7 +770,6 @@ Example: Instead of asking, "Tell me about AI," you could ask, "Explain the conc
   - Generate output sequentially, one token at a time (e.g., GPT).
   - Example: Predicting the next word in a sentence based on previous words.
   - Slower but often produces higher-quality outputs.
-
 - **Non-Autoregressive Models:**
 
   - Generate all tokens in parallel (e.g., some image generation models).
@@ -811,7 +807,6 @@ Example: Instead of asking, "Tell me about AI," you could ask, "Explain the conc
   - Consist of two neural networks (generator and discriminator) that compete against each other.
   - Primarily used for image generation.
   - Example: Generating realistic faces or artwork.
-
 - **Transformers:**
 
   - Use self-attention mechanisms to process sequential data like text.
